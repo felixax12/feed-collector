@@ -1,0 +1,1 @@
+Ja, also das Logging für Clickhouse ist wirklich entscheidend. Ich finde die Insert Success Counter eine gute Idee, aber bitte alle 5 Sekunden, falls das irgendwie geht. Health Check finde ich auch gut, alle 10 Sekunden. Row Loss ist sicher auch interessant, falls das irgendwie schlau und gut möglich ist ohne etwas zu coden, das nichts bringt. 

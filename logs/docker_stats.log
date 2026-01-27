@@ -1,0 +1,88 @@
+2026-01-27 12:51:52
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   25.94%    963.6MiB / 15.47GiB   6.08%     466MB / 5.67MB   1.41GB / 33.2GB   788
+
+2026-01-27 12:52:05
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   11.20%    936.7MiB / 15.47GiB   5.91%     467MB / 5.69MB   1.41GB / 33.2GB   788
+
+2026-01-27 12:52:17
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   20.49%    956.8MiB / 15.47GiB   6.04%     469MB / 5.7MB   1.41GB / 33.2GB   788
+
+2026-01-27 13:03:03
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   26.48%    953.9MiB / 15.47GiB   6.02%     538MB / 6.54MB   1.41GB / 34.1GB   788
+
+2026-01-27 13:03:14
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   8.91%     935.9MiB / 15.47GiB   5.91%     538MB / 6.54MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:03:26
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   14.12%    879.7MiB / 15.47GiB   5.55%     538MB / 6.55MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:03:38
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   11.15%    917.1MiB / 15.47GiB   5.79%     539MB / 6.56MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:03:50
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   12.33%    934.4MiB / 15.47GiB   5.90%     540MB / 6.58MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:04:01
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   12.85%    975.2MiB / 15.47GiB   6.15%     542MB / 6.6MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:04:13
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   13.77%    963.3MiB / 15.47GiB   6.08%     543MB / 6.61MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:04:25
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT    MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   19.03%    1024MiB / 15.47GiB   6.46%     544MB / 6.63MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:04:37
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT   MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   9.86%     974MiB / 15.47GiB   6.15%     546MB / 6.64MB   1.41GB / 34.2GB   788
+
+2026-01-27 13:04:49
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   16.98%    985.3MiB / 15.47GiB   6.22%     547MB / 6.66MB   1.41GB / 34.3GB   788
+
+2026-01-27 13:05:00
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   12.65%    974.6MiB / 15.47GiB   6.15%     548MB / 6.67MB   1.41GB / 34.3GB   788
+
+2026-01-27 13:05:12
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   26.32%    935.7MiB / 15.47GiB   5.91%     550MB / 6.69MB   1.41GB / 34.3GB   788
+
+2026-01-27 13:05:24
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   9.07%     949.1MiB / 15.47GiB   5.99%     551MB / 6.7MB   1.41GB / 34.3GB   788
+
+2026-01-27 13:05:36
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT   MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   31.37%    923MiB / 15.47GiB   5.83%     552MB / 6.72MB   1.41GB / 34.3GB   788
+
+2026-01-27 13:05:47
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   5.95%     986.8MiB / 15.47GiB   6.23%     553MB / 6.73MB   1.41GB / 34.3GB   788
+
+2026-01-27 13:05:59
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   5.78%     958.2MiB / 15.47GiB   6.05%     555MB / 6.75MB   1.41GB / 34.3GB   788
+
+2026-01-27 13:06:11
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   11.53%    936.7MiB / 15.47GiB   5.91%     556MB / 6.77MB   1.41GB / 34.4GB   788
+
+2026-01-27 13:06:23
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT   MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   13.77%    983MiB / 15.47GiB   6.20%     557MB / 6.78MB   1.41GB / 34.4GB   788
+
+2026-01-27 13:06:34
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+d8e3e5b91f81   feed_clickhouse   9.51%     956.3MiB / 15.47GiB   6.04%     558MB / 6.79MB   1.41GB / 34.4GB   788
+

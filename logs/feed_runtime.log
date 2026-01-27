@@ -1,0 +1,180 @@
+
+2026-01-27 13:01:40,837 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:01:41,010 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:01:42,334 INFO root: [ingest] clickhouse: events+5984/10s items+5984/10s flushed+5440/10s
+2026-01-27 13:01:42,335 INFO root: [diff] mark_price: ws+5984 routed+5984 written+5984 lost+0
+2026-01-27 13:01:42,336 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch 544
+2026-01-27 13:01:42,336 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=544 missing=0 backlog=0 backlog_ws=544
+2026-01-27 13:01:42,337 INFO root: [sys] py_cpu=5.1% | py_rss=75.2MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:01:50,851 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:01:51,020 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:01:52,352 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:01:52,353 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:01:52,353 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=0 backlog_ws=544
+2026-01-27 13:01:52,354 INFO root: [sys] py_cpu=6.7% | py_rss=75.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:02:00,865 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:02:01,036 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:02:02,359 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:02:02,360 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:02:02,360 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=0 backlog_ws=544
+2026-01-27 13:02:02,361 INFO root: [sys] py_cpu=6.4% | py_rss=75.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:02:10,887 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:02:11,051 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:02:12,376 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5984/10s
+2026-01-27 13:02:12,376 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:02:12,377 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch -544
+2026-01-27 13:02:12,377 INFO root: [health] mark_price: expected=5440/10s flushed=5984 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-27 13:02:12,515 INFO root: [sys] py_cpu=4.9% | py_rss=75.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:02:20,891 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:02:21,059 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:02:22,524 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:02:22,525 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:02:22,525 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-27 13:02:22,526 INFO root: [sys] py_cpu=4.7% | py_rss=75.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:02:30,905 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:02:31,075 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:02:32,538 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5429/10s
+2026-01-27 13:02:32,539 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:02:32,541 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch 11
+2026-01-27 13:02:32,542 INFO root: [health] mark_price: expected=5440/10s flushed=5429 pending=11 missing=11 backlog=11 backlog_ws=11
+2026-01-27 13:02:32,544 INFO root: [sys] py_cpu=4.1% | py_rss=75.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:02:40,912 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:02:41,086 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:02:42,551 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+4907/10s
+2026-01-27 13:02:42,551 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:02:42,552 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch 533
+2026-01-27 13:02:42,553 INFO root: [health] mark_price: expected=5440/10s flushed=4907 pending=533 missing=533 backlog=544 backlog_ws=544
+2026-01-27 13:02:42,554 INFO root: [sys] py_cpu=4.1% | py_rss=75.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:02:50,927 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:02:51,096 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:02:52,568 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5984/10s
+2026-01-27 13:02:52,568 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:02:52,569 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch -544
+2026-01-27 13:02:52,569 INFO root: [health] mark_price: expected=5440/10s flushed=5984 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-27 13:02:52,570 INFO root: [sys] py_cpu=3.9% | py_rss=75.8MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:03:25,241 INFO root: LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-01-27 13:03:25,242 INFO feeds.binance: connect channel=mark_price streams=100
+2026-01-27 13:03:25,269 INFO feeds.binance: connect channel=mark_price streams=100
+2026-01-27 13:03:25,272 INFO feeds.binance: connect channel=mark_price streams=100
+2026-01-27 13:03:25,275 INFO feeds.binance: connect channel=mark_price streams=100
+2026-01-27 13:03:25,277 INFO feeds.binance: connect channel=mark_price streams=100
+2026-01-27 13:03:25,279 INFO feeds.binance: connect channel=mark_price streams=44
+2026-01-27 13:03:25,396 WARNING root: ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-01-27 13:03:26,220 INFO feeds.binance: connected channel=mark_price
+2026-01-27 13:03:26,221 INFO feeds.binance: connected channel=mark_price
+2026-01-27 13:03:26,221 INFO feeds.binance: connected channel=mark_price
+2026-01-27 13:03:26,232 INFO feeds.binance: connected channel=mark_price
+2026-01-27 13:03:26,246 INFO feeds.binance: connected channel=mark_price
+2026-01-27 13:03:26,365 INFO feeds.binance: connected channel=mark_price
+2026-01-27 13:03:35,282 INFO feeds.binance: ws-stats mark_price: msgs+4960/10s conns+6 discs+0
+2026-01-27 13:03:35,402 INFO root: [ingest] clickhouse: events+5265/10s items+5265/10s flushed+4721/10s
+2026-01-27 13:03:35,403 INFO root: [diff] mark_price: ws+5265 routed+5265 written+5265 lost+0
+2026-01-27 13:03:35,403 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch 544
+2026-01-27 13:03:35,404 INFO root: [health] mark_price: expected=5440/10s flushed=4721 pending=544 missing=719 backlog=719 backlog_ws=544
+2026-01-27 13:03:35,407 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:03:35,525 INFO root: [sys] py_cpu=9.3% | py_rss=73.5MB
+2026-01-27 13:03:45,283 INFO feeds.binance: ws-stats mark_price: msgs+5401/10s conns+0 discs+0
+2026-01-27 13:03:45,410 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:03:45,531 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5984/10s
+2026-01-27 13:03:45,532 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:03:45,532 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch -544
+2026-01-27 13:03:45,533 INFO root: [health] mark_price: expected=5440/10s flushed=5984 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:03:45,534 INFO root: [sys] py_cpu=5.2% | py_rss=74.0MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:03:55,322 INFO feeds.binance: ws-stats mark_price: msgs+5718/10s conns+0 discs+0
+2026-01-27 13:03:55,420 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:03:55,542 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:03:55,543 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:03:55,544 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:03:55,545 INFO root: [sys] py_cpu=4.8% | py_rss=74.8MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:04:05,329 INFO feeds.binance: ws-stats mark_price: msgs+5506/10s conns+0 discs+0
+2026-01-27 13:04:05,438 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:04:05,560 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:04:05,560 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:04:05,561 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:04:05,563 INFO root: [sys] py_cpu=5.0% | py_rss=75.1MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:04:15,338 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:04:15,448 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:04:15,568 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:04:15,568 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:04:15,569 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:04:15,569 INFO root: [sys] py_cpu=3.3% | py_rss=75.3MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:04:25,350 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:04:25,458 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:04:25,579 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:04:25,580 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:04:25,581 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:04:25,582 INFO root: [sys] py_cpu=4.1% | py_rss=75.3MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:04:35,354 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:04:35,463 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:04:35,588 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5227/10s
+2026-01-27 13:04:35,589 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:04:35,592 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch 213
+2026-01-27 13:04:35,594 INFO root: [health] mark_price: expected=5440/10s flushed=5227 pending=213 missing=213 backlog=388 backlog_ws=213
+2026-01-27 13:04:35,746 INFO root: [sys] py_cpu=5.1% | py_rss=75.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:04:45,359 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:04:45,466 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:04:45,758 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5653/10s
+2026-01-27 13:04:45,759 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:04:45,760 INFO root: [loss] mark_price: ws->router 0 | router->writer 0 | writer->ch -213
+2026-01-27 13:04:45,760 INFO root: [health] mark_price: expected=5440/10s flushed=5653 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:04:45,761 INFO root: [sys] py_cpu=4.1% | py_rss=75.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:04:55,369 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:04:55,476 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:04:55,768 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:04:55,769 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:04:55,769 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:04:55,770 INFO root: [sys] py_cpu=1.9% | py_rss=75.6MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:05:05,371 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:05:05,483 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:05:05,776 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:05:05,778 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:05:05,778 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:05:05,780 INFO root: [sys] py_cpu=3.6% | py_rss=75.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:05:15,377 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:05:15,504 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:05:15,790 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:05:15,791 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:05:15,793 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:05:15,794 INFO root: [sys] py_cpu=4.5% | py_rss=74.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:05:25,387 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:05:25,509 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:05:25,801 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:05:25,802 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:05:25,804 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:05:25,805 INFO root: [sys] py_cpu=4.2% | py_rss=75.3MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:05:35,388 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:05:35,526 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:05:35,816 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:05:35,818 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:05:35,818 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:05:35,914 INFO root: [sys] py_cpu=5.9% | py_rss=75.6MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:05:45,400 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:05:45,537 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:05:45,922 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:05:45,922 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:05:45,923 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:05:45,923 INFO root: [sys] py_cpu=3.1% | py_rss=75.8MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:05:55,410 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:05:55,550 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:05:55,964 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:05:55,965 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:05:55,970 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:05:55,971 INFO root: [sys] py_cpu=4.7% | py_rss=74.3MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:06:05,413 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:06:05,553 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:06:05,973 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:06:05,974 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:06:05,974 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:06:05,975 INFO root: [sys] py_cpu=5.9% | py_rss=73.9MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:06:15,419 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:06:15,560 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:06:15,992 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:06:15,992 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:06:15,993 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:06:15,995 INFO root: [sys] py_cpu=5.8% | py_rss=75.0MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-27 13:06:25,435 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-27 13:06:25,577 INFO root: HEALTH channel=mark_price lag_ms avg=0.0 max=0
+2026-01-27 13:06:26,002 INFO root: [ingest] clickhouse: events+5440/10s items+5440/10s flushed+5440/10s
+2026-01-27 13:06:26,003 INFO root: [diff] mark_price: ws+5440 routed+5440 written+5440 lost+0
+2026-01-27 13:06:26,004 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=175 backlog_ws=0
+2026-01-27 13:06:26,004 INFO root: [sys] py_cpu=5.5% | py_rss=75.1MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s

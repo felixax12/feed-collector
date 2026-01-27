@@ -1,0 +1,6 @@
+httpx
+psutil
+websockets
+pydantic
+PyYAML
+clickhouse-connect

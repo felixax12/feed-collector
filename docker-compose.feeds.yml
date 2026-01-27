@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  feed_clickhouse:
+    image: clickhouse/clickhouse-server:24.3
+    container_name: feed_clickhouse
+    ports:
+      - "8124:8123"
+      - "9001:9000"
+    environment:
+      CLICKHOUSE_USER: feeduser
+      CLICKHOUSE_PASSWORD: feedpass
+      CLICKHOUSE_DB: marketdata
+    volumes:
+      - feed_clickhouse_data:/var/lib/clickhouse
+    networks:
+      - feed_stack
+
+  feed_redis:
+    image: redis:7.2
+    container_name: feed_redis
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6380:6379"
+    volumes:
+      - feed_redis_data:/data
+    networks:
+      - feed_stack
+
+networks:
+  feed_stack:
+    name: feed_stack
+
+volumes:
+  feed_clickhouse_data:
+  feed_redis_data:

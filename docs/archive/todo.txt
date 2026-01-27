@@ -1,0 +1,15 @@
+Fragen an KI:
+ - Unterschied zwischen ob diffs und ob 100ms raw.
+
+1. Überlegen welche Kennzahlen ich in Binance 1.5s Sekunden eintragen soll. 
+    Spread sicher, dann gibt es sicher auch noch nützliche trackings für aktivität, anzahl trades usw. usw.
+    Kennzahl für Anzahl Änderungen von Best Bid und Ask in den letzten 5,10 und 20 Sekunden - im Nachinein berechnen? Eigentlich sind ja alle vorherigen einträge nötig. 
+    --> Gut überlegen.
+
+2. Ich brauche Logs, die mir fehlende Sachen oder Fehler anzeigen. Sonst werde ich nie wissen, was und wie es mir fehlt. 
+
+Final: 
+ Genaues Framework machen wie der Collector funktioniert, was er alles macht, wie er es speichert usw.
+    - Es geht vor allem um Formate und Art von Daten. 
+    --> Aber erst wenn ich wirklich final zufrieden bin mit dem Resultat. 
+    --> Hauptsächlich damit ich nachher sogleich weitere Exchanges hinzufügen kann. 

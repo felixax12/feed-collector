@@ -1,0 +1,18 @@
+defaults:
+  redis:
+    dsn: redis://localhost:6380/0
+    pipeline_size: 200
+    flush_interval_ms: 50
+    stream_maxlen: 1000
+    cluster: false
+  clickhouse:
+    dsn: http://feeduser:feedpass@localhost:8124
+    database: marketdata
+    batch_rows: 5000
+    flush_interval_ms: 250
+    compression: lz4
+  enable_redis: true
+  enable_clickhouse: true
+  housekeep_interval_s: 30
+
+exchanges: []

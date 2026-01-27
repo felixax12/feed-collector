@@ -1,0 +1,6 @@
+1. Logs noch richtig machen. 
+
+2. Suchen wieso das Eth, Sol, Xrp keine Einträge haben
+
+3. Finales Framework mit Format der Daten usw. Lohnt es sich für alle anderen nun nach Binance
+zu normalisieren? 

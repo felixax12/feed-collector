@@ -1,0 +1,88 @@
+{
+  "presets": [
+    {
+      "id": 1,
+      "name": "1s Preis + BBO (ClickHouse)",
+      "description": "Streams: markPrice@1s (Preis) + bookTicker (BBO). Snapshot only, kein Diff-Rebuild.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "channels": {
+        "mark_price": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "l1": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}}
+      }
+    },
+    {
+      "id": "1.1",
+      "name": "BBO (ClickHouse)",
+      "description": "Stream: bookTicker (BBO). Snapshot only, kein Diff-Rebuild. Health-Monitoring aktiv.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "metadata": {"symbols_per_conn": {"l1": 200}},
+      "channels": {
+        "l1": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}}
+      }
+    },
+    {
+      "id": "2.1",
+      "name": "1s Preis (ClickHouse)",
+      "description": "Stream: markPrice@1s. Snapshot only, kein Diff-Rebuild. Health-Monitoring aktiv.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "metadata": {"symbols_per_conn": {"mark_price": 100}},
+      "channels": {
+        "mark_price": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}}
+      }
+    },
+    {
+      "id": "2.2",
+      "name": "1s Preis + Top5 (ClickHouse)",
+      "description": "Streams: markPrice@1s + depth5@1s (sharded). Snapshot only, kein Diff-Rebuild. Health-Monitoring aktiv.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "channels": {
+        "mark_price": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "ob_top5": {
+          "enabled": true,
+          "depth": 5,
+          "outputs": {"redis": false, "clickhouse": true},
+          "extras": {"speed": "1s"}
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Jede BBO-Aenderung (ClickHouse)",
+      "description": "Stream: bookTicker (BBO). Snapshot only, kein Diff-Rebuild.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "channels": {
+        "l1": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}}
+      }
+    },
+    {
+      "id": 4,
+      "name": "Alles (ClickHouse)",
+      "description": "Streams: trades, bookTicker, depth5@100ms, depth20@100ms, depth@100ms (Diffs), markPrice@1s, klines. Diffs ohne Snapshot-Rebuild.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "channels": {
+        "trades": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "l1": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "ob_top5": {"enabled": true, "depth": 5, "outputs": {"redis": false, "clickhouse": true}},
+        "ob_top20": {"enabled": true, "depth": 20, "outputs": {"redis": false, "clickhouse": true}},
+        "ob_diff": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "liquidations": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "mark_price": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "funding": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "klines": {"enabled": true, "interval": "1m", "outputs": {"redis": false, "clickhouse": true}},
+        "advanced_metrics": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}}
+      }
+    }
+  ]
+}
