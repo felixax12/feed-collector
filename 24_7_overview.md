@@ -86,3 +86,13 @@ Wirklich belastbare Hardware-Entscheidung braucht Messwerte (durchschnittliche R
 - Primärquelle fuer markPrice@1s: `marketdata.mark_price`
 - Zeitfensterabfragen laufen ueber `ts_event_ns` + `instrument`
 - Der Zugriff erfolgt ueber ClickHouse HTTP (8124) oder native Clients.
+
+## 6) Remote-Abfragen (Main-Laptop -> Zweitlaptop)
+**Basis-URL (platzhalter):**  
+`http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124`
+
+**Letzter Eintrag + Rowcount:**
+```
+curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%20max(toDateTime64(ts_event_ns/1000,3))%20AS%20last_dt,%20count()%20AS%20rows%20FROM%20marketdata.mark_price"
+```
+Aktuelle IP: 192.168.1.131
