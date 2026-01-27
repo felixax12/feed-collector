@@ -54,6 +54,13 @@ ipconfig
 New-NetFirewallRule -DisplayName "ClickHouse 8124" -Direction Inbound -Protocol TCP -LocalPort 8124 -Action Allow
 ```
 
+### 3. Port-Mapping prüfen (Docker Compose)
+`docker-compose.feeds.yml` muss enthalten:
+```yaml
+ports:
+  - "8124:8123"
+```
+
 ### 3. Verbindung testen (Main-Laptop)
 ```bash
 curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%201"

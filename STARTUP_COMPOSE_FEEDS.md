@@ -20,9 +20,14 @@ Erwartung: `feed_clickhouse` und `feed_redis` laufen.
 
 ## 2) Basis-Checks
 
-ClickHouse erreichbar?
+ClickHouse erreichbar (lokal)?
 ```bash
 curl http://localhost:8124/
+
+ClickHouse erreichbar (remote)?
+```bash
+curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%201"
+```
 ```
 Erwartet: `Ok.`
 

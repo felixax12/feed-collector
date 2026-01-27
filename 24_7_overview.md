@@ -2,9 +2,10 @@
 
 Ziel dieses Dokuments: **klar und knapp** beschreiben, wo die Daten liegen, in welchem Format, wie man darauf zugreift, und welche Hardware-Klassen realistisch sind. Kein Health/Monitoring-Text.
 
-## 1) Zugang zu ClickHouse (lokal)
+## 1) Zugang zu ClickHouse (lokal oder remote)
 Quelle: `feeds/feeds.yml`
-- DSN: `http://feeduser:feedpass@localhost:8124`
+- Lokal: `http://feeduser:feedpass@localhost:8124`
+- Remote: `http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124`
 - Database: `marketdata`
 - User: `feeduser`
 - Passwort: `feedpass`
@@ -87,12 +88,21 @@ Wirklich belastbare Hardware-Entscheidung braucht Messwerte (durchschnittliche R
 - Zeitfensterabfragen laufen ueber `ts_event_ns` + `instrument`
 - Der Zugriff erfolgt ueber ClickHouse HTTP (8124) oder native Clients.
 
-## 6) Remote-Abfragen (Main-Laptop -> Zweitlaptop)
-**Basis-URL (platzhalter):**  
+## 6) Remote-Verbindung (Main-Laptop -> Zweitlaptop)
+**Voraussetzungen (Zweitlaptop):**
+1) Docker-Port gemappt: `8124:8123` in `docker-compose.feeds.yml`
+2) Windows Firewall: TCP Port `8124` inbound erlauben
+3) Zweitlaptop-IP im gleichen Netz (LAN/WLAN)
+
+**Basis-URL (platzhalter):**
 `http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124`
+
+**Verbindung testen:**
+```
+curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%201"
+```
 
 **Letzter Eintrag + Rowcount:**
 ```
 curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%20max(toDateTime64(ts_event_ns/1000,3))%20AS%20last_dt,%20count()%20AS%20rows%20FROM%20marketdata.mark_price"
 ```
-Aktuelle IP: 192.168.1.131
