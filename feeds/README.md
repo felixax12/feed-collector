@@ -61,12 +61,12 @@ Alle Events erben von `BaseEvent` und enthalten Pflichtfelder:
 
 | Feld          | Typ  | Beschreibung |
 | ------------- | ---- | ------------ |
-| `exchange`    | str  | Name des Adapters (z. B. `binance`). |
-| `market_type` | str  | Segment (`spot`, `perp_linear`, `perp_inverse`, `delivery`, ...). |
 | `instrument`  | str  | Symbol exakt wie von der Boerse geliefert (`BTCUSDT`). |
 | `channel`     | Enum `Channel` | `trades`, `l1`, `ob_top5`, `ob_top20`, `ob_diff`, `liquidations`, `klines`, `mark_price`, `funding`, `advanced_metrics`. |
 | `ts_event_ns` | int  | Nanosekunden-Zeitstempel des Exchanges. |
 | `ts_recv_ns`  | int  | Nanosekunden-Zeitstempel beim Collector (`now_ns`). |
+
+> **Hinweis:** `exchange` und `market_type` werden nicht mehr im Event gespeichert - diese Informationen sind implizit durch den verwendeten Adapter bekannt und sparen Speicherplatz.
 
 Channel-spezifische Felder (Kurzfassung):
 
@@ -85,12 +85,12 @@ Alle numerischen Werte werden als `decimal.Decimal` gehalten, damit Writer verlu
 
 ## 3. Redis-Schema
 
-Namespace-Pattern: `marketdata:<typ>:<exchange>:<instrument>`.
+Namespace-Pattern: `marketdata:<typ>:<instrument>`.
 
-- `marketdata:last:l1:...` - Hash mit `bid_price`, `bid_qty`, `ask_price`, `ask_qty`, `ts_event_ns`, `ts_recv_ns`.  
-- `marketdata:last:top5:...` / `top20` - Hash mit Feldern `b1_px`, `b1_sz`, ..., `a5_sz` usw.  
-- `marketdata:last:mark:...`, `last:funding:...`, `last:adv:...` - Hashes fuer Mark Price, Funding, Advanced Metrics.  
-- `marketdata:stream:trades:...`, `marketdata:stream:liquidations:...` - Streams (XADD) mit MAXLEN-Begrenzung.
+- `marketdata:last:l1:<instrument>` - Hash mit `bid_price`, `bid_qty`, `ask_price`, `ask_qty`, `ts_event_ns`, `ts_recv_ns`.
+- `marketdata:last:top5:<instrument>` / `top20` - Hash mit Feldern `b1_px`, `b1_sz`, ..., `a5_sz` usw.
+- `marketdata:last:mark:<instrument>`, `last:funding:<instrument>`, `last:adv:<instrument>` - Hashes fuer Mark Price, Funding, Advanced Metrics.
+- `marketdata:stream:trades:<instrument>`, `marketdata:stream:liquidations:<instrument>` - Streams (XADD) mit MAXLEN-Begrenzung.
 
 `RedisWriter` pipelinet Kommandos (`pipeline_size`, `flush_interval_ms`). Hashes spiegeln den letzten Zustand, Streams liefern Rollfenster fuer Trades/Liquidationen.
 
@@ -100,10 +100,12 @@ Namespace-Pattern: `marketdata:<typ>:<exchange>:<instrument>`.
 
 Empfohlene Tabellen in Datenbank `marketdata` (siehe auch `DEFAULT_TABLES` im Inspector):
 
-- `trades`: Event-Zeitstempel, Preise, Mengen, Side, IDs.  
-- `l1`, `ob_top5`, `ob_top20`: Orderbuch-Snapshots als Arrays plus `depth`.  
-- `order_book_diffs`: Sequenzen und Delta-Maps (Preis -> Menge).  
+- `trades`: `instrument`, `ts_event_ns`, `ts_recv_ns`, Preise, Mengen, Side, IDs.
+- `l1`, `ob_top5`, `ob_top20`: Orderbuch-Snapshots als Arrays plus `depth`.
+- `order_book_diffs`: Sequenzen und Delta-Maps (Preis -> Menge).
 - `liquidations`, `mark_price`, `funding`, `klines`, `advanced_metrics`: analog zu Eventfeldern.
+
+Alle Tabellen verwenden `ORDER BY (instrument, ts_event_ns)` fuer effiziente Zeitreihenabfragen.
 
 `ClickHouseWriter` sammelt Zeilen je Tabelle (`batch_rows`) und sendet HTTP-Inserts im JSONEachRow-Format (optional LZ4). In der DDL sollten `ts_event_ns`/`ts_recv_ns` als `UInt64` oder `DateTime64(9)` interpretiert werden (z. B. Materialized Column `toDateTime64(ts_event_ns / 1e9, 9)`).
 

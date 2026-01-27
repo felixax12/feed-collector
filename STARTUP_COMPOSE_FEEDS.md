@@ -18,16 +18,16 @@ Erwartung: `feed_clickhouse` und `feed_redis` laufen.
 
 ---
 
-## 2) Basis-Checks
+## 2) Basis-Checks (lokal und remote)
 
 ClickHouse erreichbar (lokal)?
 ```bash
 curl http://localhost:8124/
+```
 
 ClickHouse erreichbar (remote)?
 ```bash
 curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%201"
-```
 ```
 Erwartet: `Ok.`
 
@@ -55,13 +55,14 @@ python setup_clickhouse_feeds.py
 
 ---
 
-## 4) Feed-Modul starten (neue Compose-Config)
+## 4) Feed-Modul starten
 
 ```bash
 python run_feeds.py
 ```
 
 Die Defaults (Redis/ClickHouse-DSN) stehen in `feeds/feeds.yml`.
+Standard-Creds in diesem Stack: `feeduser` / `feedpass`, DB `marketdata`.
 
 ---
 
@@ -98,7 +99,18 @@ docker compose -f docker-compose.feeds.yml down -v
 
 ---
 
-## 7) Legacy Collector (optional)
+## 7) Remote-Abfrage (Main-Laptop)
+
+Voraussetzungen: Zweitlaptop laeuft, Port `8124` ist freigegeben, IP ist bekannt.
+
+Letzter Eintrag + Rowcount:
+```bash
+curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%20max(event_time)%20AS%20last_dt,%20count()%20AS%20rows%20FROM%20marketdata.mark_price"
+```
+
+---
+
+## 8) Legacy Collector (optional)
 
 Wenn du weiterhin `binance_collector.py` nutzen willst, setze eigene Ports:
 ```bash

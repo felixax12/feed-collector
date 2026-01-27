@@ -21,8 +21,6 @@ class Channel(str, Enum):
 
 
 class BaseEvent(BaseModel):
-    exchange: str
-    market_type: str
     instrument: str
     channel: Channel
     ts_event_ns: int = Field(..., ge=0)

@@ -84,8 +84,6 @@ def resolve_settings() -> Settings:
 
 def build_schema_sql(database: str) -> Iterable[Tuple[str, str]]:
     common = """
-        exchange String,
-        market_type String,
         instrument String,
         ts_event_ns UInt64,
         ts_recv_ns UInt64,
@@ -95,7 +93,7 @@ def build_schema_sql(database: str) -> Iterable[Tuple[str, str]]:
     engine = """
         ENGINE = MergeTree
         PARTITION BY toYYYYMM(event_time)
-        ORDER BY (exchange, market_type, instrument, ts_event_ns)
+        ORDER BY (instrument, ts_event_ns)
     """
 
     tables = {

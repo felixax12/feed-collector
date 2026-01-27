@@ -18,18 +18,15 @@ from ...utils.decimal import to_decimal
 
 
 def trade_from_stream(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
 ) -> TradeEvent:
+    ts_event_ms = int(payload.get("T") or payload.get("E"))
     return TradeEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.trades,
-        ts_event_ns=int(payload.get("T") or payload.get("E")),
+        ts_event_ns=ts_event_ms * 1_000_000,
         ts_recv_ns=ts_recv_ns,
         price=to_decimal(payload["p"]),
         qty=to_decimal(payload["q"]),
@@ -40,20 +37,16 @@ def trade_from_stream(
 
 
 def l1_from_stream(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
 ) -> OrderBookDepthEvent:
     event_ts = payload.get("E")
-    ts_event_ms = int(event_ts) if event_ts is not None else int(ts_recv_ns // 1_000_000)
+    ts_event_ns = int(event_ts) * 1_000_000 if event_ts is not None else ts_recv_ns
     return OrderBookDepthEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.l1,
-        ts_event_ns=ts_event_ms,
+        ts_event_ns=ts_event_ns,
         ts_recv_ns=ts_recv_ns,
         depth=1,
         bid_prices=[to_decimal(payload["b"])],
@@ -64,8 +57,6 @@ def l1_from_stream(
 
 
 def depth_from_snapshot(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
@@ -75,13 +66,11 @@ def depth_from_snapshot(
     bids = _pairs_to_dec(payload.get("bids", []), depth)
     asks = _pairs_to_dec(payload.get("asks", []), depth)
     event_ts = payload.get("E")
-    ts_event_ms = int(event_ts) if event_ts is not None else int(ts_recv_ns // 1_000_000)
+    ts_event_ns = int(event_ts) * 1_000_000 if event_ts is not None else ts_recv_ns
     return OrderBookDepthEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=channel,
-        ts_event_ns=ts_event_ms,
+        ts_event_ns=ts_event_ns,
         ts_recv_ns=ts_recv_ns,
         depth=depth,
         bid_prices=[px for px, _ in bids],
@@ -92,8 +81,6 @@ def depth_from_snapshot(
 
 
 def diff_from_stream(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
@@ -101,11 +88,9 @@ def diff_from_stream(
     bids = {to_decimal(price): to_decimal(qty) for price, qty in payload.get("b", [])}
     asks = {to_decimal(price): to_decimal(qty) for price, qty in payload.get("a", [])}
     return OrderBookDiffEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.ob_diff,
-        ts_event_ns=int(payload["E"]),
+        ts_event_ns=int(payload["E"]) * 1_000_000,
         ts_recv_ns=ts_recv_ns,
         sequence=int(payload["u"]),
         prev_sequence=int(payload["U"]),
@@ -115,19 +100,15 @@ def diff_from_stream(
 
 
 def liquidation_from_stream(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
 ) -> LiquidationEvent:
     order = payload["o"]
     return LiquidationEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.liquidations,
-        ts_event_ns=int(order["T"]),
+        ts_event_ns=int(order["T"]) * 1_000_000,
         ts_recv_ns=ts_recv_ns,
         side=order["S"],
         price=to_decimal(order["L"]),
@@ -138,18 +119,14 @@ def liquidation_from_stream(
 
 
 def mark_price_from_stream(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
 ) -> MarkPriceEvent:
     return MarkPriceEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.mark_price,
-        ts_event_ns=int(payload["E"]),
+        ts_event_ns=int(payload["E"]) * 1_000_000,
         ts_recv_ns=ts_recv_ns,
         mark_price=to_decimal(payload["p"]),
         index_price=to_decimal(payload["i"]) if payload.get("i") else None,
@@ -157,18 +134,14 @@ def mark_price_from_stream(
 
 
 def funding_from_stream(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
 ) -> FundingEvent:
     return FundingEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.funding,
-        ts_event_ns=int(payload["E"]),
+        ts_event_ns=int(payload["E"]) * 1_000_000,
         ts_recv_ns=ts_recv_ns,
         funding_rate=to_decimal(payload["r"] if "r" in payload else payload["f"]),
         next_funding_ts_ns=int(payload["T"]),
@@ -176,19 +149,15 @@ def funding_from_stream(
 
 
 def kline_from_stream(
-    exchange: str,
-    market_type: str,
     symbol: str,
     payload: dict,
     ts_recv_ns: int,
 ) -> KlineEvent:
     k = payload["k"]
     return KlineEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.klines,
-        ts_event_ns=int(payload["E"]),
+        ts_event_ns=int(payload["E"]) * 1_000_000,
         ts_recv_ns=ts_recv_ns,
         interval=k["i"],
         open=to_decimal(k["o"]),
@@ -202,8 +171,6 @@ def kline_from_stream(
 
 
 def metrics_from_state(
-    exchange: str,
-    market_type: str,
     symbol: str,
     ts_event_ns: int,
     ts_recv_ns: int,
@@ -227,8 +194,6 @@ def metrics_from_state(
         if total > 0:
             metrics["imbalance_5"] = (bid_qty_total - ask_qty_total) / total
     return AdvancedMetricsEvent(
-        exchange=exchange,
-        market_type=market_type,
         instrument=symbol,
         channel=Channel.advanced_metrics,
         ts_event_ns=ts_event_ns,

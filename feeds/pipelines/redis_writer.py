@@ -96,7 +96,7 @@ class RedisWriter(EventWriter):
         return []
 
     def _build_trade_command(self, event: TradeEvent) -> RedisCommand:
-        key = self._key("stream", "trades", event.exchange, event.instrument)
+        key = self._key("stream", "trades", event.instrument)
         payload = {
             "ts_event_ns": str(event.ts_event_ns),
             "ts_recv_ns": str(event.ts_recv_ns),
@@ -119,7 +119,7 @@ class RedisWriter(EventWriter):
             50: "last:top50",
             100: "last:top100",
         }[event.depth]
-        key = self._key(prefix, event.exchange, event.instrument)
+        key = self._key(prefix, event.instrument)
         payload: Dict[str, str] = {
             "ts_event_ns": str(event.ts_event_ns),
             "ts_recv_ns": str(event.ts_recv_ns),
@@ -133,7 +133,7 @@ class RedisWriter(EventWriter):
         return RedisCommand("hset", key, payload)
 
     def _build_mark_command(self, event: MarkPriceEvent) -> RedisCommand:
-        key = self._key("last:mark", event.exchange, event.instrument)
+        key = self._key("last:mark", event.instrument)
         payload = {
             "ts_event_ns": str(event.ts_event_ns),
             "ts_recv_ns": str(event.ts_recv_ns),
@@ -144,7 +144,7 @@ class RedisWriter(EventWriter):
         return RedisCommand("hset", key, payload)
 
     def _build_funding_command(self, event: FundingEvent) -> RedisCommand:
-        key = self._key("last:funding", event.exchange, event.instrument)
+        key = self._key("last:funding", event.instrument)
         payload = {
             "ts_event_ns": str(event.ts_event_ns),
             "ts_recv_ns": str(event.ts_recv_ns),
@@ -154,7 +154,7 @@ class RedisWriter(EventWriter):
         return RedisCommand("hset", key, payload)
 
     def _build_metrics_command(self, event: AdvancedMetricsEvent) -> RedisCommand:
-        key = self._key("last:adv", event.exchange, event.instrument)
+        key = self._key("last:adv", event.instrument)
         payload = {
             "ts_event_ns": str(event.ts_event_ns),
             "ts_recv_ns": str(event.ts_recv_ns),
@@ -164,7 +164,7 @@ class RedisWriter(EventWriter):
         return RedisCommand("hset", key, payload)
 
     def _build_liquidation_command(self, event: LiquidationEvent) -> RedisCommand:
-        key = self._key("stream", "liquidations", event.exchange, event.instrument)
+        key = self._key("stream", "liquidations", event.instrument)
         payload = {
             "ts_event_ns": str(event.ts_event_ns),
             "ts_recv_ns": str(event.ts_recv_ns),

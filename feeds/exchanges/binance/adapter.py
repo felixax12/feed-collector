@@ -138,8 +138,6 @@ class BinanceFeed(ExchangeFeed):
                         if mark_conf.enabled and self.has_outputs(mark_conf):
                             try:
                                 mark_event = transforms.mark_price_from_stream(
-                                    self.exchange_name,
-                                    self.market_type,
                                     symbol,
                                     data,
                                     ts_recv_ns,
@@ -154,8 +152,6 @@ class BinanceFeed(ExchangeFeed):
                         if funding_conf.enabled and self.has_outputs(funding_conf):
                             try:
                                 funding_event = transforms.funding_from_stream(
-                                    self.exchange_name,
-                                    self.market_type,
                                     symbol,
                                     data,
                                     ts_recv_ns,
@@ -233,21 +229,15 @@ class BinanceFeed(ExchangeFeed):
         ts_recv_ns: int,
     ) -> None:
         if channel_name == "trades":
-            event = transforms.trade_from_stream(
-                self.exchange_name, self.market_type, symbol, payload, ts_recv_ns
-            )
+            event = transforms.trade_from_stream(symbol, payload, ts_recv_ns)
             await self.router.publish(event)
         elif channel_name == "l1":
-            event = transforms.l1_from_stream(
-                self.exchange_name, self.market_type, symbol, payload, ts_recv_ns
-            )
+            event = transforms.l1_from_stream(symbol, payload, ts_recv_ns)
             await self._handle_depth_event(symbol, event)
         elif channel_name in {"ob_top5", "ob_top20"}:
             depth = channel_conf.depth or (5 if channel_name == "ob_top5" else 20)
             channel_enum = Channel.ob_top5 if depth == 5 else Channel.ob_top20
             event = transforms.depth_from_snapshot(
-                self.exchange_name,
-                self.market_type,
                 symbol,
                 payload,
                 ts_recv_ns,
@@ -256,19 +246,13 @@ class BinanceFeed(ExchangeFeed):
             )
             await self._handle_depth_event(symbol, event)
         elif channel_name == "ob_diff":
-            event = transforms.diff_from_stream(
-                self.exchange_name, self.market_type, symbol, payload, ts_recv_ns
-            )
+            event = transforms.diff_from_stream(symbol, payload, ts_recv_ns)
             await self.router.publish(event)
         elif channel_name == "liquidations":
-            event = transforms.liquidation_from_stream(
-                self.exchange_name, self.market_type, symbol, payload, ts_recv_ns
-            )
+            event = transforms.liquidation_from_stream(symbol, payload, ts_recv_ns)
             await self.router.publish(event)
         elif channel_name == "klines":
-            event = transforms.kline_from_stream(
-                self.exchange_name, self.market_type, symbol, payload, ts_recv_ns
-            )
+            event = transforms.kline_from_stream(symbol, payload, ts_recv_ns)
             await self.router.publish(event)
 
     async def _handle_depth_event(self, symbol: str, event: OrderBookDepthEvent) -> None:
@@ -286,8 +270,6 @@ class BinanceFeed(ExchangeFeed):
             }
         if self._advanced_channel and self._advanced_channel.enabled and self.has_outputs(self._advanced_channel):
             adv_event = transforms.metrics_from_state(
-                self.exchange_name,
-                self.market_type,
                 symbol,
                 event.ts_event_ns,
                 event.ts_recv_ns,

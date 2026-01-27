@@ -2,6 +2,18 @@
 
 Ziel dieses Dokuments: **klar und knapp** beschreiben, wo die Daten liegen, in welchem Format, wie man darauf zugreift, und welche Hardware-Klassen realistisch sind. Kein Health/Monitoring-Text.
 
+## Kurzfassung (Remote-Abfrage vom Main-Laptop)
+1) Zweitlaptop laeuft (Docker + `run_feeds.py` aktiv).  
+2) Port `8124` ist am Zweitlaptop offen (Firewall + Docker Port-Mapping).  
+3) Abfrage testen:
+```
+curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%201"
+```
+4) Daten pruefen:
+```
+curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%20max(event_time)%20AS%20last_dt,%20count()%20AS%20rows%20FROM%20marketdata.mark_price"
+```
+
 ## 1) Zugang zu ClickHouse (lokal oder remote)
 Quelle: `feeds/feeds.yml`
 - Lokal: `http://feeduser:feedpass@localhost:8124`
@@ -38,8 +50,6 @@ Hinweis: In anderen Umgebungen werden diese Werte typischerweise via `feeds/feed
 **Tabelle:** `marketdata.mark_price`
 
 Schema (aus `setup_clickhouse_feeds.py`):
-- `exchange` String
-- `market_type` String
 - `instrument` String
 - `ts_event_ns` UInt64
 - `ts_recv_ns` UInt64
@@ -47,12 +57,12 @@ Schema (aus `setup_clickhouse_feeds.py`):
 - `index_price` Nullable(Decimal(38, 18))
 
 Zeitstempel-Hinweis:
-- Binance liefert `ts_event` in **ms**.
-- Im Event wird dieser Wert aktuell als `ts_event_ns` gespeichert (ms-Wert im UInt64-Feld). Das muss im Analyse-Repo klar beruecksichtigt werden.
+- Binance liefert `ts_event` in **ms**; im Adapter wird es in **ns** umgerechnet, sodass `ts_event_ns` echte Nanosekunden enthält.
+- Die materialisierte Spalte `event_time` nutzt `toDateTime64(ts_event_ns / 1e9, 9)` und ist damit korrekt für Zeitfensterabfragen.
 
 ## 3) Datenzugriff (Orientierung, keine Anleitung)
 - Daten liegen **pro Symbol** in der Tabelle `marketdata.mark_price`.
-- Abfragen erfolgen typischerweise ueber `instrument` + Zeitfenster (`ts_event_ns`).
+- Abfragen erfolgen typischerweise ueber `instrument` + Zeitfenster. Fuer Zeitfenster immer `event_time` verwenden.
 - Backtesting liest direkt aus `marketdata.mark_price` (1s Zeitreihe je Symbol).
 
 ## 4) Hardware-Orientierung (Praxis-Skala)
@@ -104,5 +114,5 @@ curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%201"
 
 **Letzter Eintrag + Rowcount:**
 ```
-curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%20max(toDateTime64(ts_event_ns/1000,3))%20AS%20last_dt,%20count()%20AS%20rows%20FROM%20marketdata.mark_price"
+curl "http://feeduser:feedpass@<ZWEITLAPTOP_IP>:8124/?query=SELECT%20max(event_time)%20AS%20last_dt,%20count()%20AS%20rows%20FROM%20marketdata.mark_price"
 ```

@@ -121,8 +121,6 @@ class ClickHouseWriter(EventWriter):
 
     def _event_to_row(self, event: BaseEvent) -> Optional[Tuple[str, Dict[str, object]]]:
         common = {
-            "exchange": event.exchange,
-            "market_type": event.market_type,
             "instrument": event.instrument,
             "ts_event_ns": event.ts_event_ns,
             "ts_recv_ns": event.ts_recv_ns,
