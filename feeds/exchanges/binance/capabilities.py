@@ -1,5 +1,6 @@
 SUPPORTED_CHANNELS = {
     "trades": {"description": "Echtzeit Trades", "stream": "{symbol}@trade"},
+    "agg_trades_5s": {"description": "Aggregierte Trades (5s)", "stream": "{symbol}@aggTrade"},
     "l1": {"description": "Best Bid/Ask via bookTicker", "stream": "{symbol}@bookTicker"},
     "ob_top5": {"description": "Top 5 Orderbuch-Linien", "stream": "{symbol}@depth5{speed}"},
     "ob_top20": {"description": "Top 20 Orderbuch-Linien", "stream": "{symbol}@depth20{speed}"},

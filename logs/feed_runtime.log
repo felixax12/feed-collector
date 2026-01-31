@@ -466,3 +466,155 @@
 2026-01-27 18:48:25,006 INFO root: [health] mark_price: expected=5440/10s flushed=5440 pending=0 missing=0 backlog=0 backlog_ws=0
 2026-01-27 18:48:25,007 INFO root: [sys] py_cpu=5.9% | py_rss=73.8MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
 2026-01-27 18:48:33,730 INFO feeds.binance: ws-stats mark_price: msgs+5440/10s conns+0 discs+0
+2026-01-31 09:38:44,628 INFO root: LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-01-31 09:38:44,629 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:38:44,787 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:38:44,789 INFO feeds.binance: connect channel=klines streams=144
+2026-01-31 09:38:45,159 WARNING root: ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-01-31 09:38:45,900 INFO feeds.binance: connected channel=klines
+2026-01-31 09:38:45,960 INFO feeds.binance: connected channel=klines
+2026-01-31 09:38:45,969 INFO feeds.binance: connected channel=klines
+2026-01-31 09:38:48,296 WARNING root: CH flush failed table=klines rows=9 error=All connection attempts failed
+2026-01-31 09:38:48,541 WARNING root: CH flush failed table=klines rows=72 error=All connection attempts failed
+2026-01-31 09:38:48,783 WARNING root: CH flush failed table=klines rows=78 error=All connection attempts failed
+2026-01-31 09:38:49,047 WARNING root: CH flush failed table=klines rows=93 error=All connection attempts failed
+2026-01-31 09:38:50,589 WARNING root: CH flush failed table=klines rows=75 error=All connection attempts failed
+2026-01-31 09:38:50,835 WARNING root: CH flush failed table=klines rows=70 error=All connection attempts failed
+2026-01-31 09:38:51,082 WARNING root: CH flush failed table=klines rows=98 error=All connection attempts failed
+2026-01-31 09:38:51,346 WARNING root: CH flush failed table=klines rows=69 error=All connection attempts failed
+2026-01-31 09:38:52,881 WARNING root: CH flush failed table=klines rows=70 error=All connection attempts failed
+2026-01-31 09:38:53,114 WARNING root: CH flush failed table=klines rows=47 error=All connection attempts failed
+2026-01-31 09:42:31,318 INFO root: LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-01-31 09:42:31,320 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:42:31,370 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:42:31,372 INFO feeds.binance: connect channel=klines streams=144
+2026-01-31 09:42:31,623 WARNING root: ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-01-31 09:42:32,354 INFO feeds.binance: connected channel=klines
+2026-01-31 09:42:32,403 INFO feeds.binance: connected channel=klines
+2026-01-31 09:42:32,409 INFO feeds.binance: connected channel=klines
+2026-01-31 09:42:41,377 INFO feeds.binance: ws-stats klines: msgs+3003/10s conns+3 discs+0
+2026-01-31 09:42:41,628 INFO root: [ingest] clickhouse: events+3047/10s items+3047/10s flushed+2997/10s
+2026-01-31 09:42:41,628 INFO root: [diff] klines: ws+3047 routed+3047 written+3047 lost+0
+2026-01-31 09:42:41,628 INFO root: [loss] klines: ws->router 0 | router->writer 0 | writer->ch 50
+2026-01-31 09:42:41,629 INFO root: [sys] py_cpu=16.5% | py_rss=68.6MB
+2026-01-31 09:42:41,632 WARNING root: HEALTH channel=klines missing=24 stale=0 sample_missing=XTZUSDT,ICXUSDT,DENTUSDT,MTLUSDT,IOTXUSDT sample_stale=
+2026-01-31 09:42:41,632 INFO root: HEALTH channel=klines lag_ms avg=627.5 max=737
+2026-01-31 09:42:51,391 INFO feeds.binance: ws-stats klines: msgs+2417/10s conns+0 discs+0
+2026-01-31 09:42:51,638 WARNING root: HEALTH channel=klines missing=10 stale=0 sample_missing=DENTUSDT,IOTXUSDT,ETHWUSDT,BABYUSDT,OLUSDT sample_stale=
+2026-01-31 09:42:51,639 INFO root: HEALTH channel=klines lag_ms avg=626.8 max=675
+2026-01-31 09:42:51,804 INFO root: [ingest] clickhouse: events+2463/10s items+2463/10s flushed+2446/10s
+2026-01-31 09:42:51,804 INFO root: [diff] klines: ws+2463 routed+2463 written+2463 lost+0
+2026-01-31 09:42:51,804 INFO root: [loss] klines: ws->router 0 | router->writer 0 | writer->ch 17
+2026-01-31 09:42:51,805 INFO root: [sys] py_cpu=11.7% | py_rss=69.0MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:43:01,392 INFO feeds.binance: ws-stats klines: msgs+3613/10s conns+0 discs+0
+2026-01-31 09:43:01,642 WARNING root: HEALTH channel=klines missing=1 stale=0 sample_missing=IOTXUSDT sample_stale=
+2026-01-31 09:43:01,642 INFO root: HEALTH channel=klines lag_ms avg=627.3 max=638
+2026-01-31 09:43:01,806 INFO root: [ingest] clickhouse: events+3807/10s items+3807/10s flushed+3791/10s
+2026-01-31 09:43:01,807 INFO root: [diff] klines: ws+3807 routed+3807 written+3807 lost+0
+2026-01-31 09:43:01,807 INFO root: [loss] klines: ws->router 0 | router->writer 0 | writer->ch 16
+2026-01-31 09:43:01,808 INFO root: [sys] py_cpu=13.6% | py_rss=69.3MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:46:53,301 INFO root: LOG LEGEND [2.3 1m Klines (ClickHouse)]: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-01-31 09:46:53,303 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:46:53,358 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:46:53,359 INFO feeds.binance: connect channel=klines streams=144
+2026-01-31 09:46:53,769 WARNING root: ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-01-31 09:46:54,504 INFO feeds.binance: connected channel=klines
+2026-01-31 09:46:54,547 INFO feeds.binance: connected channel=klines
+2026-01-31 09:46:54,557 INFO feeds.binance: connected channel=klines
+2026-01-31 09:47:03,362 INFO feeds.binance: ws-stats klines: msgs+463/10s conns+3 discs+0
+2026-01-31 09:47:03,770 INFO root: [ingest] clickhouse: events+544/10s items+544/10s flushed+468/10s
+2026-01-31 09:47:03,770 INFO root: [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 09:47:03,771 INFO root: [loss] klines: ws->router 0 | router->writer 0 | writer->ch 76
+2026-01-31 09:47:03,771 INFO root: [sys] py_cpu=14.6% | py_rss=68.2MB
+2026-01-31 09:47:03,774 INFO root: HEALTH channel=klines lag_ms avg=626.6 max=642
+2026-01-31 09:47:13,365 INFO feeds.binance: ws-stats klines: msgs+81/10s conns+0 discs+0
+2026-01-31 09:47:13,782 INFO root: HEALTH channel=klines lag_ms avg=626.6 max=642
+2026-01-31 09:47:13,872 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+76/10s
+2026-01-31 09:47:13,874 INFO root: [loss] klines: ws->router 0 | router->writer 0 | writer->ch -76
+2026-01-31 09:47:13,874 INFO root: [sys] py_cpu=8.0% | py_rss=68.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:47:23,788 INFO root: HEALTH channel=klines lag_ms avg=626.6 max=642
+2026-01-31 09:47:23,877 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:47:23,878 INFO root: [sys] py_cpu=9.8% | py_rss=68.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:47:33,793 INFO root: HEALTH channel=klines lag_ms avg=626.6 max=642
+2026-01-31 09:47:33,885 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:47:33,886 INFO root: [sys] py_cpu=10.9% | py_rss=68.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:47:43,795 INFO root: HEALTH channel=klines lag_ms avg=626.6 max=642
+2026-01-31 09:47:43,892 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:47:43,892 INFO root: [sys] py_cpu=9.2% | py_rss=68.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:47:53,804 INFO root: HEALTH channel=klines lag_ms avg=626.6 max=642
+2026-01-31 09:47:53,898 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:47:53,900 INFO root: [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 09:47:53,901 INFO root: [sys] py_cpu=14.4% | py_rss=68.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:48:03,395 INFO feeds.binance: ws-stats klines: msgs+452/10s conns+0 discs+0
+2026-01-31 09:48:03,812 INFO root: HEALTH channel=klines lag_ms avg=627.2 max=636
+2026-01-31 09:48:03,910 INFO root: [ingest] clickhouse: events+544/10s items+544/10s flushed+544/10s
+2026-01-31 09:48:03,911 INFO root: [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 09:48:03,912 INFO root: [sys] py_cpu=14.8% | py_rss=68.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:48:13,401 INFO feeds.binance: ws-stats klines: msgs+92/10s conns+0 discs+0
+2026-01-31 09:48:13,818 INFO root: HEALTH channel=klines lag_ms avg=627.2 max=636
+2026-01-31 09:48:14,032 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:48:14,032 INFO root: [sys] py_cpu=11.1% | py_rss=68.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:48:23,833 INFO root: HEALTH channel=klines lag_ms avg=627.2 max=636
+2026-01-31 09:48:24,033 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:48:24,033 INFO root: [sys] py_cpu=11.6% | py_rss=68.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:48:33,840 INFO root: HEALTH channel=klines lag_ms avg=627.2 max=636
+2026-01-31 09:48:34,039 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:48:34,040 INFO root: [sys] py_cpu=11.4% | py_rss=68.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:48:43,842 INFO root: HEALTH channel=klines lag_ms avg=627.2 max=636
+2026-01-31 09:48:44,053 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:48:44,054 INFO root: [sys] py_cpu=8.9% | py_rss=68.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:48:53,849 INFO root: HEALTH channel=klines lag_ms avg=627.2 max=636
+2026-01-31 09:48:54,058 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:48:54,058 INFO root: [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 09:48:54,059 INFO root: [sys] py_cpu=11.4% | py_rss=68.7MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:49:03,430 INFO feeds.binance: ws-stats klines: msgs+477/10s conns+0 discs+0
+2026-01-31 09:49:03,851 INFO root: HEALTH channel=klines lag_ms avg=626.2 max=637
+2026-01-31 09:49:04,060 INFO root: [ingest] clickhouse: events+544/10s items+544/10s flushed+544/10s
+2026-01-31 09:49:04,061 INFO root: [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 09:49:04,061 INFO root: [sys] py_cpu=14.1% | py_rss=68.9MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:49:13,431 INFO feeds.binance: ws-stats klines: msgs+67/10s conns+0 discs+0
+2026-01-31 09:49:13,854 INFO root: HEALTH channel=klines lag_ms avg=626.2 max=637
+2026-01-31 09:49:14,219 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:49:14,220 INFO root: [sys] py_cpu=10.6% | py_rss=69.0MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:49:23,857 INFO root: HEALTH channel=klines lag_ms avg=626.2 max=637
+2026-01-31 09:49:24,225 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:49:24,226 INFO root: [sys] py_cpu=14.4% | py_rss=69.0MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:56:25,644 INFO root: LOG LEGEND [2.3 1m Klines (ClickHouse)]: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-01-31 09:56:25,646 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:56:25,720 INFO feeds.binance: connect channel=klines streams=200
+2026-01-31 09:56:25,722 INFO feeds.binance: connect channel=klines streams=144
+2026-01-31 09:56:26,225 WARNING root: ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-01-31 09:56:26,958 INFO feeds.binance: connected channel=klines
+2026-01-31 09:56:27,031 INFO feeds.binance: connected channel=klines
+2026-01-31 09:56:27,045 INFO feeds.binance: connected channel=klines
+2026-01-31 09:56:35,727 INFO feeds.binance: ws-stats klines: msgs+0/10s conns+3 discs+0
+2026-01-31 09:56:36,232 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:56:36,232 INFO root: [sys] py_cpu=9.7% | py_rss=67.1MB
+2026-01-31 09:56:36,240 WARNING root: HEALTH channel=klines missing=544 stale=0 sample_missing=BTCUSDT,ETHUSDT,BCHUSDT,XRPUSDT,LTCUSDT sample_stale=
+2026-01-31 09:56:46,250 WARNING root: HEALTH channel=klines missing=544 stale=0 sample_missing=BTCUSDT,ETHUSDT,BCHUSDT,XRPUSDT,LTCUSDT sample_stale=
+2026-01-31 09:56:46,344 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:56:46,345 INFO root: [sys] py_cpu=8.0% | py_rss=67.8MB | py_io_read=0.14MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:56:56,252 WARNING root: HEALTH channel=klines missing=544 stale=0 sample_missing=BTCUSDT,ETHUSDT,BCHUSDT,XRPUSDT,LTCUSDT sample_stale=
+2026-01-31 09:56:56,346 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:56:56,349 INFO root: [sys] py_cpu=8.4% | py_rss=67.9MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:57:05,737 INFO feeds.binance: ws-stats klines: msgs+544/10s conns+0 discs+0
+2026-01-31 09:57:06,260 INFO root: HEALTH channel=klines lag_ms avg=624.2 max=652
+2026-01-31 09:57:06,355 INFO root: [ingest] clickhouse: events+544/10s items+544/10s flushed+544/10s
+2026-01-31 09:57:06,355 INFO root: [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 09:57:06,356 INFO root: [sys] py_cpu=15.6% | py_rss=68.4MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:57:16,270 INFO root: HEALTH channel=klines lag_ms avg=624.2 max=652
+2026-01-31 09:57:16,359 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:57:16,361 INFO root: [sys] py_cpu=8.1% | py_rss=68.4MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:57:26,275 INFO root: HEALTH channel=klines lag_ms avg=624.2 max=652
+2026-01-31 09:57:26,362 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:57:26,362 INFO root: [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 09:57:26,463 INFO root: [sys] py_cpu=10.4% | py_rss=68.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:57:36,277 INFO root: HEALTH channel=klines lag_ms avg=624.2 max=652
+2026-01-31 09:57:36,466 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:57:36,468 INFO root: [sys] py_cpu=7.7% | py_rss=68.5MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:57:46,282 INFO root: HEALTH channel=klines lag_ms avg=624.2 max=652
+2026-01-31 09:57:46,612 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:57:46,613 INFO root: [sys] py_cpu=7.5% | py_rss=68.6MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s
+2026-01-31 09:57:56,285 INFO root: HEALTH channel=klines lag_ms avg=624.2 max=652
+2026-01-31 09:57:56,616 INFO root: [ingest] clickhouse: events+0/10s items+0/10s flushed+0/10s
+2026-01-31 09:57:56,618 INFO root: [sys] py_cpu=10.5% | py_rss=68.6MB | py_io_read=0.00MB/10s | py_io_write=0.00MB/10s

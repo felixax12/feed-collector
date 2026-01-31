@@ -1,0 +1,76 @@
+2026-01-31 10:54:57,178 INFO root: [2.3 1m Klines (ClickHouse)] CPU affinity set via psutil: core=1
+2026-01-31 10:54:57,178 INFO root: [2.3 1m Klines (ClickHouse)] Start preset=2.3 1m Klines (ClickHouse)
+2026-01-31 10:54:58,434 INFO root: [2.3 1m Klines (ClickHouse)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-01-31 10:54:58,435 INFO root: [2.3 1m Klines (ClickHouse)] Preset config: label=2.3 1m Klines (ClickHouse) log_interval_s=60 health=True
+2026-01-31 10:54:58,435 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-01-31 10:54:58,465 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-01-31 10:54:58,466 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=144
+2026-01-31 10:54:58,676 WARNING root: [2.3 1m Klines (ClickHouse)] ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-01-31 10:54:59,471 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-01-31 10:54:59,474 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-01-31 10:54:59,477 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-01-31 10:55:58,470 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+3 discs+0
+2026-01-31 10:55:58,682 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 10:55:58,683 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 10:55:58,684 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 10:55:58,686 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=608.1 max=628
+2026-01-31 10:55:58,883 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.6% | py_rss=67.4MB
+2026-01-31 10:56:58,472 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-01-31 10:56:58,692 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=611.6 max=874
+2026-01-31 10:56:58,965 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 10:56:58,967 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 10:56:58,968 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 10:56:59,055 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.0% | py_rss=68.1MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-01-31 10:57:58,473 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-01-31 10:57:58,701 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=610.1 max=640
+2026-01-31 10:57:59,128 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 10:57:59,129 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 10:57:59,129 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 10:57:59,244 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=5.7% | py_rss=68.2MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-01-31 11:27:06,487 INFO root: [2.3 1m Klines (ClickHouse)] CPU affinity set via psutil: core=1
+2026-01-31 11:27:06,488 INFO root: [2.3 1m Klines (ClickHouse)] Start preset=2.3 1m Klines (ClickHouse)
+2026-01-31 11:27:08,756 INFO root: [2.3 1m Klines (ClickHouse)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-01-31 11:27:08,757 INFO root: [2.3 1m Klines (ClickHouse)] Preset config: label=2.3 1m Klines (ClickHouse) log_interval_s=60 health=True
+2026-01-31 11:27:08,757 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-01-31 11:27:08,777 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-01-31 11:27:08,777 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=144
+2026-01-31 11:27:08,994 WARNING root: [2.3 1m Klines (ClickHouse)] ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-01-31 11:27:09,790 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-01-31 11:27:09,791 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-01-31 11:27:09,821 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-01-31 11:28:08,783 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+3 discs+0
+2026-01-31 11:28:08,998 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 11:28:08,999 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 11:28:08,999 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 11:28:09,001 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=600.3 max=617
+2026-01-31 11:28:09,107 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.0% | py_rss=68.6MB
+2026-01-31 11:29:08,790 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-01-31 11:29:09,014 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=598.0 max=609
+2026-01-31 11:29:09,169 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 11:29:09,170 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 11:29:09,170 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 11:29:09,339 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=5.6% | py_rss=69.2MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-01-31 11:30:08,800 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-01-31 11:30:09,021 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=604.3 max=630
+2026-01-31 11:30:09,515 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 11:30:09,515 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 11:30:09,516 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 11:30:09,632 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.6% | py_rss=69.6MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-01-31 11:31:08,812 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-01-31 11:31:09,029 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=606.4 max=640
+2026-01-31 11:31:09,708 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 11:31:09,709 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 11:31:09,710 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 11:31:09,859 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.8% | py_rss=69.6MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-01-31 11:32:08,817 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-01-31 11:32:09,035 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=597.6 max=616
+2026-01-31 11:32:09,935 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 11:32:09,935 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 11:32:09,936 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 11:32:10,072 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=7.4% | py_rss=69.8MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-01-31 11:33:08,827 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-01-31 11:33:09,038 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=599.5 max=620
+2026-01-31 11:33:10,138 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-01-31 11:33:10,140 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-01-31 11:33:10,141 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-01-31 11:33:10,238 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.4% | py_rss=69.1MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s

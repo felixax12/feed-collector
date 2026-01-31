@@ -54,6 +54,30 @@
       }
     },
     {
+      "id": "2.3",
+      "name": "1m Klines (ClickHouse)",
+      "description": "Stream: klines@1m. Snapshot only, kein Diff-Rebuild. Health-Monitoring aktiv.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "metadata": {"symbols_per_conn": {"klines": 200}, "log_interval_s": 60, "ws_log_interval_s": 60},
+      "channels": {
+        "klines": {"enabled": true, "interval": "1m", "outputs": {"redis": false, "clickhouse": true}}
+      }
+    },
+    {
+      "id": "2.4",
+      "name": "AggTrades 5s (ClickHouse)",
+      "description": "Stream: aggTrade -> 5s Aggregation. 1 Zeile pro Symbol pro 5 Sekunden. Health-Monitoring aktiv.",
+      "exchange": "binance",
+      "market_type": "perp_linear",
+      "symbols": "ALL",
+      "metadata": {"symbols_per_conn": {"agg_trades_5s": 50}, "log_interval_s": 5, "ws_log_interval_s": 5},
+      "channels": {
+        "agg_trades_5s": {"enabled": true, "interval": "5s", "outputs": {"redis": false, "clickhouse": true}}
+      }
+    },
+    {
       "id": 3,
       "name": "Jede BBO-Aenderung (ClickHouse)",
       "description": "Stream: bookTicker (BBO). Snapshot only, kein Diff-Rebuild.",

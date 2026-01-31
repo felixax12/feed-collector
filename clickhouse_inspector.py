@@ -29,6 +29,7 @@ except Exception:  # pragma: no cover
 
 DEFAULT_TABLES = [
     "advanced_metrics",
+    "agg_trades_5s",
     "funding",
     "klines",
     "l1",
@@ -504,6 +505,248 @@ def check_ob_top5_completeness(client, settings: Settings, current_db: str) -> N
     print_rows(per_symbol.column_names, per_symbol.result_rows)
 
 
+def check_klines_1m_completeness(client, settings: Settings, current_db: str) -> None:
+    print("\nKlines Vollstaendigkeit (1 Zeile pro Symbol pro Minute, interval=1m, is_closed=1)")
+    minutes_raw = input("Zeitraum in Minuten (Default 10, 'all' fuer alles): ").strip().lower()
+    if minutes_raw in {"", "10"}:
+        minutes = 10
+    elif minutes_raw == "all":
+        minutes = None
+    elif minutes_raw.isdigit():
+        minutes = int(minutes_raw)
+    else:
+        print("Ungueltige Eingabe.")
+        return
+
+    divisor, unit = _detect_time_divisor(client, current_db, "klines")
+    bounds = client.query(
+        "SELECT min(toUInt32(ts_event_ns/{div})) AS min_sec, "
+        "max(toUInt32(ts_event_ns/{div})) AS max_sec "
+        "FROM {db}.klines WHERE interval = '1m' AND is_closed = 1".format(
+            db=current_db, div=divisor
+        )
+    )
+    min_sec, max_sec = bounds.result_rows[0]
+    if min_sec is None or max_sec is None:
+        print("Keine Daten in klines (interval=1m, is_closed=1).")
+        return
+
+    if minutes is None:
+        start_sec = int(min_sec)
+    else:
+        start_sec = max(int(min_sec), int(max_sec) - minutes * 60 + 1)
+    end_sec = int(max_sec)
+
+    expected = client.query(
+        "SELECT countDistinct(instrument) FROM {db}.klines "
+        "WHERE interval = '1m' AND is_closed = 1 "
+        "AND toUInt32(ts_event_ns/{div}) BETWEEN %(start)s AND %(end)s".format(
+            db=current_db, div=divisor
+        ),
+        parameters={"start": start_sec, "end": end_sec},
+    )
+    expected_symbols = expected.result_rows[0][0]
+    if not expected_symbols:
+        print("Keine Symbole im gewaehlten Zeitraum.")
+        return
+
+    summary = client.query(
+        """
+        WITH
+          %(start)s AS start_sec,
+          %(end)s AS end_sec,
+          %(expected)s AS expected_symbols
+        SELECT
+          sum(missing) AS missing_total,
+          countIf(missing > 0) AS minutes_with_missing,
+          max(missing) AS max_missing
+        FROM (
+          SELECT
+            minute,
+            expected_symbols - ifNull(actual_symbols, 0) AS missing
+          FROM
+            (SELECT arrayJoin(range(intDiv(start_sec, 60), intDiv(end_sec, 60) + 1)) AS minute) AS timeline
+          LEFT JOIN
+            (
+              SELECT
+                toUInt32(intDiv(ts_event_ns/{div}, 60)) AS minute,
+                countDistinct(instrument) AS actual_symbols
+              FROM {db}.klines
+              WHERE interval = '1m' AND is_closed = 1
+                AND toUInt32(ts_event_ns/{div}) BETWEEN start_sec AND end_sec
+              GROUP BY minute
+            ) AS actual USING minute
+        )
+        """.format(db=current_db, div=divisor),
+        parameters={"start": start_sec, "end": end_sec, "expected": expected_symbols},
+    )
+    missing_total, minutes_with_missing, max_missing = summary.result_rows[0]
+
+    print(
+        f"Zeitraum: {start_sec}..{end_sec} (Sekunden, ts_event in {unit}), Symbole: {expected_symbols}\n"
+        f"Fehlende Eintraege gesamt: {missing_total}, "
+        f"Minuten mit Luecken: {minutes_with_missing}, "
+        f"Max fehlend pro Minute: {max_missing}"
+    )
+
+    rows = client.query(
+        """
+        WITH
+          %(start)s AS start_sec,
+          %(end)s AS end_sec,
+          %(expected)s AS expected_symbols
+        SELECT
+          minute,
+          expected_symbols - ifNull(actual_symbols, 0) AS missing
+        FROM
+          (SELECT arrayJoin(range(intDiv(start_sec, 60), intDiv(end_sec, 60) + 1)) AS minute) AS timeline
+        LEFT JOIN
+          (
+            SELECT
+              toUInt32(intDiv(ts_event_ns/{div}, 60)) AS minute,
+              countDistinct(instrument) AS actual_symbols
+            FROM {db}.klines
+            WHERE interval = '1m' AND is_closed = 1
+              AND toUInt32(ts_event_ns/{div}) BETWEEN start_sec AND end_sec
+            GROUP BY minute
+          ) AS actual USING minute
+        WHERE expected_symbols - ifNull(actual_symbols, 0) > 0
+        ORDER BY minute DESC
+        LIMIT 20
+        """.format(db=current_db, div=divisor),
+        parameters={"start": start_sec, "end": end_sec, "expected": expected_symbols},
+    )
+    if rows.result_rows:
+        print("\nBeispiele mit Luecken (minute, missing):")
+        print_rows(rows.column_names, rows.result_rows)
+    else:
+        print("\nKeine Luecken im betrachteten Zeitraum gefunden.")
+
+
+def check_agg_trades_5s_completeness(client, settings: Settings, current_db: str) -> None:
+    print("\nAggTrades Vollstaendigkeit (1 Zeile pro Symbol pro 5 Sekunden)")
+    minutes_raw = input("Zeitraum in Minuten (Default 10, 'all' fuer alles): ").strip().lower()
+    if minutes_raw in {"", "10"}:
+        minutes = 10
+    elif minutes_raw == "all":
+        minutes = None
+    elif minutes_raw.isdigit():
+        minutes = int(minutes_raw)
+    else:
+        print("Ungueltige Eingabe.")
+        return
+
+    divisor, unit = _detect_time_divisor(client, current_db, "agg_trades_5s")
+    bounds = client.query(
+        "SELECT min(toUInt32(ts_event_ns/{div})) AS min_sec, "
+        "max(toUInt32(ts_event_ns/{div})) AS max_sec "
+        "FROM {db}.agg_trades_5s".format(db=current_db, div=divisor)
+    )
+    min_sec, max_sec = bounds.result_rows[0]
+    if min_sec is None or max_sec is None:
+        print("Keine Daten in agg_trades_5s.")
+        return
+
+    if minutes is None:
+        start_sec = int(min_sec)
+    else:
+        start_sec = max(int(min_sec), int(max_sec) - minutes * 60 + 1)
+    end_sec = int(max_sec)
+
+    expected = client.query(
+        "SELECT countDistinct(instrument) FROM {db}.agg_trades_5s "
+        "WHERE toUInt32(ts_event_ns/{div}) BETWEEN %(start)s AND %(end)s".format(
+            db=current_db, div=divisor
+        ),
+        parameters={"start": start_sec, "end": end_sec},
+    )
+    expected_symbols = expected.result_rows[0][0]
+    if not expected_symbols:
+        print("Keine Symbole im gewaehlten Zeitraum.")
+        return
+
+    summary = client.query(
+        """
+        WITH
+          %(start)s AS start_sec,
+          %(end)s AS end_sec,
+          %(expected)s AS expected_symbols
+        SELECT
+          sum(missing) AS missing_total,
+          countIf(missing > 0) AS windows_with_missing,
+          max(missing) AS max_missing
+        FROM (
+          SELECT
+            toUInt32(intDiv(sec, 5)) AS window,
+            expected_symbols - ifNull(actual_symbols, 0) AS missing
+          FROM
+            (SELECT arrayJoin(range(start_sec, end_sec + 1)) AS sec) AS timeline
+          LEFT JOIN
+            (
+              SELECT
+                toUInt32(ts_event_ns/{div}) AS sec,
+                countDistinct(instrument) AS actual_symbols
+              FROM {db}.agg_trades_5s
+              WHERE sec BETWEEN start_sec AND end_sec
+              GROUP BY sec
+            ) AS actual USING sec
+          GROUP BY window
+        )
+        """.format(db=current_db, div=divisor),
+        parameters={"start": start_sec, "end": end_sec, "expected": expected_symbols},
+    )
+    missing_total, windows_with_missing, max_missing = summary.result_rows[0]
+
+    print(
+        f"Zeitraum: {start_sec}..{end_sec} (Sekunden, ts_event in {unit}), Symbole: {expected_symbols}\n"
+        f"Fehlende Eintraege gesamt: {missing_total}, "
+        f"5s-Fenster mit Luecken: {windows_with_missing}, "
+        f"Max fehlend pro 5s: {max_missing}"
+    )
+
+    rows = client.query(
+        """
+        WITH
+          %(start)s AS start_sec,
+          %(end)s AS end_sec,
+          %(expected)s AS expected_symbols
+        SELECT
+          toUInt32(intDiv(sec, 5)) AS window,
+          expected_symbols - countDistinct(instrument) AS missing
+        FROM {db}.agg_trades_5s
+        WHERE toUInt32(ts_event_ns/{div}) BETWEEN start_sec AND end_sec
+        GROUP BY window
+        HAVING missing > 0
+        ORDER BY window DESC
+        LIMIT 20
+        """.format(db=current_db, div=divisor),
+        parameters={"start": start_sec, "end": end_sec, "expected": expected_symbols},
+    )
+    if rows.result_rows:
+        print("\nBeispiele mit Luecken (window, missing):")
+        print_rows(rows.column_names, rows.result_rows)
+    else:
+        print("\nKeine Luecken im betrachteten Zeitraum gefunden.")
+
+
+def show_latest_rows(client, settings: Settings, current_db: str) -> None:
+    table = prompt_table_name(client, current_db)
+    if not table:
+        return
+    try:
+        limit_raw = input("Wie viele Zeilen? (Default 20): ").strip()
+        limit = int(limit_raw) if limit_raw else 20
+    except ValueError:
+        print("Ungueltige Eingabe.")
+        return
+    query = f"SELECT * FROM {current_db}.{table} ORDER BY ts_event_ns DESC LIMIT {limit}"
+    result = client.query(query)
+    if result.result_rows:
+        print_rows(result.column_names, result.result_rows)
+    else:
+        print("Keine Daten gefunden.")
+
+
 def drop_database(client, settings: Settings, current_db: str) -> str:
     confirm = input(f"Datenbank '{current_db}' löschen? (yes/no): ").strip().lower()
     if confirm != "yes":
@@ -594,6 +837,9 @@ def main() -> None:
         "0": ("Latenz prüfen", check_latency),
         "10": ("Mark-Price Vollstaendigkeit (1s)", check_mark_price_completeness),
         "11": ("OB Top5 Vollstaendigkeit (1s)", check_ob_top5_completeness),
+        "12": ("Klines Vollstaendigkeit (1m, is_closed)", check_klines_1m_completeness),
+        "13": ("AggTrades Vollstaendigkeit (5s)", check_agg_trades_5s_completeness),
+        "14": ("Letzte Zeilen anzeigen", show_latest_rows),
         "q": ("Beenden", lambda *args: None),
     }
 

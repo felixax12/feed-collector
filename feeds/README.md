@@ -62,7 +62,7 @@ Alle Events erben von `BaseEvent` und enthalten Pflichtfelder:
 | Feld          | Typ  | Beschreibung |
 | ------------- | ---- | ------------ |
 | `instrument`  | str  | Symbol exakt wie von der Boerse geliefert (`BTCUSDT`). |
-| `channel`     | Enum `Channel` | `trades`, `l1`, `ob_top5`, `ob_top20`, `ob_diff`, `liquidations`, `klines`, `mark_price`, `funding`, `advanced_metrics`. |
+| `channel`     | Enum `Channel` | `trades`, `agg_trades_5s`, `l1`, `ob_top5`, `ob_top20`, `ob_diff`, `liquidations`, `klines`, `mark_price`, `funding`, `advanced_metrics`. |
 | `ts_event_ns` | int  | Nanosekunden-Zeitstempel des Exchanges. |
 | `ts_recv_ns`  | int  | Nanosekunden-Zeitstempel beim Collector (`now_ns`). |
 

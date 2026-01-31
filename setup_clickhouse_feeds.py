@@ -108,6 +108,27 @@ def build_schema_sql(database: str) -> Iterable[Tuple[str, str]]:
             )
             {engine}
         """,
+        "agg_trades_5s": f"""
+            CREATE TABLE IF NOT EXISTS {database}.agg_trades_5s (
+                {common},
+                interval_s UInt16,
+                window_start_ns UInt64,
+                open Decimal(38, 18),
+                high Decimal(38, 18),
+                low Decimal(38, 18),
+                close Decimal(38, 18),
+                volume Decimal(38, 18),
+                notional Decimal(38, 18),
+                trade_count UInt32,
+                buy_qty Decimal(38, 18),
+                sell_qty Decimal(38, 18),
+                buy_notional Decimal(38, 18),
+                sell_notional Decimal(38, 18),
+                first_trade_id Nullable(String),
+                last_trade_id Nullable(String)
+            )
+            {engine}
+        """,
         "l1": f"""
             CREATE TABLE IF NOT EXISTS {database}.l1 (
                 {common},

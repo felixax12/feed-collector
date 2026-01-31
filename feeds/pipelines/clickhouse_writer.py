@@ -10,6 +10,7 @@ import httpx
 
 from ..core.events import (
     AdvancedMetricsEvent,
+    AggTrade5sEvent,
     BaseEvent,
     Channel,
     FundingEvent,
@@ -135,6 +136,26 @@ class ClickHouseWriter(EventWriter):
                 "is_aggressor": event.is_aggressor,
             }
             return "trades", data
+        if isinstance(event, AggTrade5sEvent):
+            data = {
+                **common,
+                "interval_s": event.interval_s,
+                "window_start_ns": event.window_start_ns,
+                "open": to_decimal(event.open),
+                "high": to_decimal(event.high),
+                "low": to_decimal(event.low),
+                "close": to_decimal(event.close),
+                "volume": to_decimal(event.volume),
+                "notional": to_decimal(event.notional),
+                "trade_count": event.trade_count,
+                "buy_qty": to_decimal(event.buy_qty),
+                "sell_qty": to_decimal(event.sell_qty),
+                "buy_notional": to_decimal(event.buy_notional),
+                "sell_notional": to_decimal(event.sell_notional),
+                "first_trade_id": event.first_trade_id,
+                "last_trade_id": event.last_trade_id,
+            }
+            return "agg_trades_5s", data
         if isinstance(event, OrderBookDepthEvent):
             data = {**common, "depth": event.depth}
             data["bid_prices"] = [to_decimal(px) for px in event.bid_prices]

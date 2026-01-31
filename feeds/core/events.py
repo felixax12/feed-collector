@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field, ConfigDict, validator
 
 class Channel(str, Enum):
     trades = "trades"
+    agg_trades_5s = "agg_trades_5s"
     l1 = "l1"
     ob_top5 = "ob_top5"
     ob_top20 = "ob_top20"
@@ -42,6 +43,24 @@ class TradeEvent(BaseEvent):
     side: str
     trade_id: Optional[str] = None
     is_aggressor: Optional[bool] = None
+
+
+class AggTrade5sEvent(BaseEvent):
+    interval_s: int
+    window_start_ns: int
+    open: Decimal
+    high: Decimal
+    low: Decimal
+    close: Decimal
+    volume: Decimal
+    notional: Decimal
+    trade_count: int
+    buy_qty: Decimal
+    sell_qty: Decimal
+    buy_notional: Decimal
+    sell_notional: Decimal
+    first_trade_id: Optional[str] = None
+    last_trade_id: Optional[str] = None
 
 
 class OrderBookDepthEvent(BaseEvent):
