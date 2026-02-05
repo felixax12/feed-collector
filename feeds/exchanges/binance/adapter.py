@@ -414,9 +414,12 @@ class BinanceFeed(ExchangeFeed):
         url = self._stream_url(stream_names)
         funding_conf = self.config.channels.get("funding", ChannelConfig(enabled=False))
         mark_conf = self.config.channels.get("mark_price", ChannelConfig(enabled=False))
+        funding_enabled = funding_conf.enabled and self.has_outputs(funding_conf)
         while not self._stop_event.is_set():
             try:
                 self._conn_counts["mark_price"] += 1
+                if funding_enabled:
+                    self._conn_counts["funding"] += 1
                 self._logger.info(
                     "connect channel=mark_price streams=%s",
                     len(stream_names),
@@ -427,6 +430,8 @@ class BinanceFeed(ExchangeFeed):
                         if self._stop_event.is_set():
                             break
                         self._msg_counts["mark_price"] += 1
+                        if funding_enabled:
+                            self._msg_counts["funding"] += 1
                         ts_recv_ns = now_ns()
                         payload = json.loads(raw)
                         data = payload.get("data", payload)
@@ -447,7 +452,7 @@ class BinanceFeed(ExchangeFeed):
                             except Exception as exc:
                                 self._parse_errors["mark_price"] += 1
                                 self._logger.warning("parse_error channel=mark_price error=%s", exc)
-                        if funding_conf.enabled and self.has_outputs(funding_conf):
+                        if funding_enabled:
                             try:
                                 funding_event = transforms.funding_from_stream(
                                     symbol,
@@ -463,6 +468,8 @@ class BinanceFeed(ExchangeFeed):
                                 self._logger.warning("parse_error channel=funding error=%s", exc)
             except Exception as exc:
                 self._disc_counts["mark_price"] += 1
+                if funding_enabled:
+                    self._disc_counts["funding"] += 1
                 self._logger.warning("disconnect channel=mark_price error=%s", exc)
                 await asyncio.sleep(1.0)
 

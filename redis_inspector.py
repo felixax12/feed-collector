@@ -30,9 +30,23 @@ class RedisSettings:
     password: Optional[str]
 
 
+LOGICAL_TABLE_PATTERNS: Dict[str, str] = {
+    "mark_price": "marketdata:last:mark:*",
+    "funding": "marketdata:last:funding:*",
+    "klines": "marketdata:last:klines:*:*",
+    "agg_trades_5s": "marketdata:last:agg_trades_5s:*",
+    "l1": "marketdata:last:l1:*",
+    "ob_top5": "marketdata:last:top5:*",
+    "ob_top20": "marketdata:last:top20:*",
+    "advanced_metrics": "marketdata:last:adv:*",
+    "trades_stream": "marketdata:stream:trades:*",
+    "liquidations_stream": "marketdata:stream:liquidations:*",
+}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Redis Inspector")
-    parser.add_argument("--config", help="Pfad zu feeds/feeds.yml (optional).")
+    parser.add_argument("--config", default="feeds/feeds.yml", help="Pfad zu feeds/feeds.yml.")
     parser.add_argument("--dsn", help="redis:// URI.")
     parser.add_argument("--host", help="Host (überschreibt DSN).")
     parser.add_argument("--port", type=int, help="Port (überschreibt DSN).")
@@ -128,6 +142,86 @@ def list_keys(client: redis.Redis) -> None:
             break
     if count == 0:
         print("  Keine Keys gefunden.")
+
+
+def list_logical_tables(client: redis.Redis) -> None:
+    print("\nLogische Tabellen/Key-Praefixe:")
+    for name, pattern in LOGICAL_TABLE_PATTERNS.items():
+        count = 0
+        for _ in client.scan_iter(match=pattern, count=1000):
+            count += 1
+        print(f"  - {name:<20} pattern={pattern:<40} keys={count}")
+
+
+def _choose_table_pattern() -> tuple[str, str]:
+    names = list(LOGICAL_TABLE_PATTERNS.keys())
+    print("\nTabellen:")
+    for idx, name in enumerate(names, 1):
+        print(f"  {idx}. {name} ({LOGICAL_TABLE_PATTERNS[name]})")
+    choice = input("Auswahl (Nummer/Name): ").strip()
+    table_name = ""
+    if choice.isdigit():
+        idx = int(choice) - 1
+        if 0 <= idx < len(names):
+            table_name = names[idx]
+    elif choice in LOGICAL_TABLE_PATTERNS:
+        table_name = choice
+    if not table_name:
+        print("Ungueltige Auswahl.")
+        return "", ""
+    return table_name, LOGICAL_TABLE_PATTERNS[table_name]
+
+
+def list_keys_by_table(client: redis.Redis) -> None:
+    table_name, pattern = _choose_table_pattern()
+    if not table_name:
+        return
+    limit_input = input("Anzahl anzuzeigender Keys (Standard 50): ").strip()
+    limit = int(limit_input) if limit_input.isdigit() else 50
+    print(f"\nKeys fuer {table_name} ({pattern}):")
+    count = 0
+    for key in client.scan_iter(match=pattern):
+        print(f"  {key.decode('utf-8', errors='replace')}")
+        count += 1
+        if count >= limit:
+            print("  ... weitere Keys ausgelassen.")
+            break
+    if count == 0:
+        print("  Keine Keys gefunden.")
+
+
+def show_table_sample(client: redis.Redis) -> None:
+    table_name, pattern = _choose_table_pattern()
+    if not table_name:
+        return
+    limit_input = input("Wie viele Keys samplen? (Standard 5): ").strip()
+    limit = int(limit_input) if limit_input.isdigit() else 5
+    keys = list(client.scan_iter(match=pattern, count=max(100, limit * 20)))
+    if not keys:
+        print("Keine Keys fuer dieses Pattern.")
+        return
+    print(f"\nSample fuer {table_name}:")
+    for encoded in keys[:limit]:
+        key = encoded.decode("utf-8", errors="replace")
+        key_type = client.type(encoded).decode()
+        ttl = client.ttl(encoded)
+        print(f"\n[{key_type}] {key} ttl={ttl}")
+        if key_type == "hash":
+            items = client.hgetall(encoded)
+            for field, value in list(items.items())[:20]:
+                f = field.decode("utf-8", errors="replace")
+                v = value.decode("utf-8", errors="replace")
+                print(f"  {f}: {v}")
+        elif key_type == "stream":
+            entries = client.xrevrange(encoded, count=3)
+            for entry_id, values in entries:
+                print(f"  {entry_id.decode('utf-8', errors='replace')}")
+                for field, value in values.items():
+                    f = field.decode("utf-8", errors="replace")
+                    v = value.decode("utf-8", errors="replace")
+                    print(f"    {f}: {v}")
+        else:
+            print("  (Kein spezifischer Reader fuer diesen Typ)")
 
 
 def inspect_key(client: redis.Redis) -> None:
@@ -237,12 +331,15 @@ def main() -> None:
     menu: Dict[str, Tuple[str, Callable]] = {
         "1": ("Keyspace Info (INFO keyspace)", lambda c: show_info(c)),
         "2": ("Datenbank wechseln", None),
-        "3": ("Keys auflisten (SCAN)", lambda c: list_keys(c)),
-        "4": ("Key inspizieren", lambda c: inspect_key(c)),
-        "5": ("Key löschen", lambda c: delete_key(c)),
-        "6": ("DB flushen (FLUSHDB)", lambda c: flush_db(c)),
-        "7": ("Alle DBs flushen (FLUSHALL)", lambda c: flush_all(c)),
-        "8": ("Ping/Latenz messen", lambda c: ping(c)),
+        "3": ("Logische Tabellen auflisten", lambda c: list_logical_tables(c)),
+        "4": ("Keys auflisten (SCAN, freies Pattern)", lambda c: list_keys(c)),
+        "5": ("Keys nach Tabelle/Praefix", lambda c: list_keys_by_table(c)),
+        "6": ("Tabellen-Sample anzeigen", lambda c: show_table_sample(c)),
+        "7": ("Key inspizieren", lambda c: inspect_key(c)),
+        "8": ("Key löschen", lambda c: delete_key(c)),
+        "9": ("DB flushen (FLUSHDB)", lambda c: flush_db(c)),
+        "10": ("Alle DBs flushen (FLUSHALL)", lambda c: flush_all(c)),
+        "0": ("Ping/Latenz messen", lambda c: ping(c)),
         "q": ("Beenden", None),
     }
 

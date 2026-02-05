@@ -26,14 +26,15 @@
     },
     {
       "id": "2.1",
-      "name": "1s Preis (ClickHouse)",
-      "description": "Stream: markPrice@1s. Snapshot only, kein Diff-Rebuild. Health-Monitoring aktiv.",
+      "name": "1s Preis + Funding (ClickHouse)",
+      "description": "Stream: markPrice@1s (Mark+Index+Funding). Snapshot only, kein Diff-Rebuild. Health-Monitoring aktiv.",
       "exchange": "binance",
       "market_type": "perp_linear",
       "symbols": "ALL",
       "metadata": {"symbols_per_conn": {"mark_price": 100}},
       "channels": {
-        "mark_price": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}}
+        "mark_price": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}},
+        "funding": {"enabled": true, "outputs": {"redis": false, "clickhouse": true}}
       }
     },
     {

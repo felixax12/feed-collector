@@ -211,6 +211,9 @@ class ClickHouseWriter(EventWriter):
                 "low": to_decimal(event.low),
                 "close": to_decimal(event.close),
                 "volume": to_decimal(event.volume),
+                "quote_volume": to_decimal(event.quote_volume),
+                "taker_buy_base_volume": to_decimal(event.taker_buy_base_volume),
+                "taker_buy_quote_volume": to_decimal(event.taker_buy_quote_volume),
                 "trade_count": event.trade_count,
                 "is_closed": event.is_closed,
             }

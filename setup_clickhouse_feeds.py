@@ -215,6 +215,9 @@ def build_schema_sql(database: str) -> Iterable[Tuple[str, str]]:
                 low Decimal(38, 18),
                 close Decimal(38, 18),
                 volume Decimal(38, 18),
+                quote_volume Decimal(38, 18),
+                taker_buy_base_volume Decimal(38, 18),
+                taker_buy_quote_volume Decimal(38, 18),
                 trade_count UInt32,
                 is_closed UInt8
             )
@@ -224,6 +227,33 @@ def build_schema_sql(database: str) -> Iterable[Tuple[str, str]]:
 
     for name, ddl in tables.items():
         yield name, " ".join(ddl.split())
+
+
+def build_migration_sql(database: str) -> Iterable[Tuple[str, str]]:
+    migrations = {
+        "funding.funding_rate": (
+            f"ALTER TABLE {database}.funding "
+            "ADD COLUMN IF NOT EXISTS funding_rate Decimal(38, 18)"
+        ),
+        "funding.next_funding_ts_ns": (
+            f"ALTER TABLE {database}.funding "
+            "ADD COLUMN IF NOT EXISTS next_funding_ts_ns UInt64"
+        ),
+        "klines.quote_volume": (
+            f"ALTER TABLE {database}.klines "
+            "ADD COLUMN IF NOT EXISTS quote_volume Decimal(38, 18) AFTER volume"
+        ),
+        "klines.taker_buy_base_volume": (
+            f"ALTER TABLE {database}.klines "
+            "ADD COLUMN IF NOT EXISTS taker_buy_base_volume Decimal(38, 18) AFTER quote_volume"
+        ),
+        "klines.taker_buy_quote_volume": (
+            f"ALTER TABLE {database}.klines "
+            "ADD COLUMN IF NOT EXISTS taker_buy_quote_volume Decimal(38, 18) AFTER taker_buy_base_volume"
+        ),
+    }
+    for name, sql in migrations.items():
+        yield name, " ".join(sql.split())
 
 
 def execute_query(
@@ -300,6 +330,15 @@ def main() -> int:
                 database=settings.database,
             )
             print(f"OK: {table_name}")
+        for migration_name, migration_sql in build_migration_sql(settings.database):
+            execute_query(
+                base_url,
+                migration_sql,
+                user=settings.user,
+                password=settings.password,
+                database=settings.database,
+            )
+            print(f"OK: migration {migration_name}")
     except HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace") if exc.fp else ""
         print(f"HTTP-Fehler {exc.code}: {body or exc.reason}")

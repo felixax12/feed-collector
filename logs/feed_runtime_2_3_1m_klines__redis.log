@@ -1,0 +1,45 @@
+2026-02-05 08:27:05,259 INFO root: [2.3 1m Klines (Redis)] CPU affinity set via psutil: core=1
+2026-02-05 08:27:05,267 INFO root: [2.3 1m Klines (Redis)] Start preset=2.3 1m Klines (Redis) output_mode=redis
+2026-02-05 08:27:07,364 INFO root: [2.3 1m Klines (Redis)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into Redis. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:27:07,367 INFO root: [2.3 1m Klines (Redis)] Preset config: label=2.3 1m Klines (Redis) log_interval_s=60 health=True output_mode=redis
+2026-02-05 08:27:07,368 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=200
+2026-02-05 08:27:07,396 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=200
+2026-02-05 08:27:07,398 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=144
+2026-02-05 08:27:08,126 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:27:08,158 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:27:08,176 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:28:07,400 INFO feeds.binance: [2.3 1m Klines (Redis)] ws-stats klines: msgs+544/60s conns+3 discs+0
+2026-02-05 08:28:07,400 INFO root: [2.3 1m Klines (Redis)] [ingest] redis: events+544/60s items+1088/60s flushed+1174/60s
+2026-02-05 08:28:07,401 INFO root: [2.3 1m Klines (Redis)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:28:07,401 INFO root: [2.3 1m Klines (Redis)] [loss] klines: ws->router 0 | router->writer 0 | writer->flush -43
+2026-02-05 08:28:07,401 INFO root: [2.3 1m Klines (Redis)] [health] klines: expected=544/60s flushed=587 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:28:07,403 INFO root: [2.3 1m Klines (Redis)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:28:07,501 INFO root: [2.3 1m Klines (Redis)] [sys] py_cpu=6.4% | py_rss=66.9MB
+2026-02-05 08:31:52,309 INFO root: [2.3 1m Klines (Redis)] CPU affinity set via psutil: core=1
+2026-02-05 08:31:52,310 INFO root: [2.3 1m Klines (Redis)] Start preset=2.3 1m Klines (Redis) output_mode=redis
+2026-02-05 08:31:54,232 INFO root: [2.3 1m Klines (Redis)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into Redis. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:31:54,232 INFO root: [2.3 1m Klines (Redis)] Preset config: label=2.3 1m Klines (Redis) log_interval_s=60 health=True output_mode=redis
+2026-02-05 08:31:54,233 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=200
+2026-02-05 08:31:54,287 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=200
+2026-02-05 08:31:54,288 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=144
+2026-02-05 08:31:55,008 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:31:55,056 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:31:55,059 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:33:25,272 INFO root: [2.3 1m Klines (Redis)] CPU affinity set via psutil: core=1
+2026-02-05 08:33:25,280 INFO root: [2.3 1m Klines (Redis)] Start preset=2.3 1m Klines (Redis) output_mode=redis
+2026-02-05 08:33:27,115 INFO root: [2.3 1m Klines (Redis)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into Redis. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:33:27,116 INFO root: [2.3 1m Klines (Redis)] Preset config: label=2.3 1m Klines (Redis) log_interval_s=60 health=True output_mode=redis
+2026-02-05 08:33:27,117 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=200
+2026-02-05 08:33:27,147 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=200
+2026-02-05 08:33:27,149 INFO feeds.binance: [2.3 1m Klines (Redis)] connect channel=klines streams=144
+2026-02-05 08:33:27,885 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:33:27,936 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:33:27,946 INFO feeds.binance: [2.3 1m Klines (Redis)] connected channel=klines
+2026-02-05 08:34:27,151 INFO feeds.binance: [2.3 1m Klines (Redis)] ws-stats klines: msgs+544/60s conns+3 discs+0
+2026-02-05 08:34:27,152 INFO root: [2.3 1m Klines (Redis)] [ingest] redis: events+544/60s items+1088/60s flushed+1020/60s
+2026-02-05 08:34:27,152 INFO root: [2.3 1m Klines (Redis)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:34:27,153 INFO root: [2.3 1m Klines (Redis)] [loss] klines: ws->router 0 | router->writer 0 | writer->flush 34
+2026-02-05 08:34:27,153 INFO root: [2.3 1m Klines (Redis)] [health] klines: expected=544/60s flushed=510 pending=34 missing=34 backlog=34 backlog_ws=34
+2026-02-05 08:34:27,155 INFO root: [2.3 1m Klines (Redis)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:34:27,250 WARNING root: [2.3 1m Klines (Redis)] [2.3 1m Klines (Redis)] [ALERT-RED] missing data channel=klines missing=34/544 (6.25%)
+2026-02-05 08:34:27,300 INFO root: [2.3 1m Klines (Redis)] [sys] py_cpu=6.9% | py_rss=66.5MB

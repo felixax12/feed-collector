@@ -74,3 +74,226 @@
 2026-01-31 11:33:10,140 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
 2026-01-31 11:33:10,141 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
 2026-01-31 11:33:10,238 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.4% | py_rss=69.1MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-02-05 07:53:22,824 INFO root: [2.3 1m Klines (ClickHouse)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 07:53:22,825 INFO root: [2.3 1m Klines (ClickHouse)] Preset config: label=2.3 1m Klines (ClickHouse) log_interval_s=60 health=True
+2026-02-05 07:53:22,826 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 07:53:22,883 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 07:53:22,886 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=144
+2026-02-05 07:53:23,044 WARNING root: [2.3 1m Klines (ClickHouse)] ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-02-05 07:53:23,780 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 07:53:23,844 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 07:53:23,844 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 07:54:18,314 INFO root: [2.3 1m Klines (ClickHouse)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 07:54:18,315 INFO root: [2.3 1m Klines (ClickHouse)] Preset config: label=2.3 1m Klines (ClickHouse) log_interval_s=60 health=True
+2026-02-05 07:54:18,315 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 07:54:18,353 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 07:54:18,354 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=144
+2026-02-05 07:54:18,464 WARNING root: [2.3 1m Klines (ClickHouse)] ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-02-05 07:54:19,192 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 07:54:19,224 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 07:54:19,228 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 07:55:18,360 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+3 discs+0
+2026-02-05 07:55:18,468 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 07:55:18,469 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 07:55:18,469 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 07:55:18,476 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 07:55:18,641 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=8.4% | py_rss=71.1MB
+2026-02-05 07:56:18,368 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-02-05 07:56:18,479 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 07:56:18,703 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 07:56:18,704 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 07:56:18,704 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 07:56:18,792 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=11.5% | py_rss=71.6MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-02-05 08:16:59,354 INFO root: [2.3 1m Klines (ClickHouse)] CPU affinity set via psutil: core=1
+2026-02-05 08:16:59,355 INFO root: [2.3 1m Klines (ClickHouse)] Start preset=2.3 1m Klines (ClickHouse) output_mode=redis
+2026-02-05 08:17:00,842 INFO root: [2.3 1m Klines (ClickHouse)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:17:00,843 INFO root: [2.3 1m Klines (ClickHouse)] Preset config: label=2.3 1m Klines (ClickHouse) log_interval_s=60 health=True output_mode=redis
+2026-02-05 08:17:00,843 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 08:17:00,886 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 08:17:00,887 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=144
+2026-02-05 08:17:01,028 WARNING root: [2.3 1m Klines (ClickHouse)] ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-02-05 08:17:01,789 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:17:01,792 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:17:01,818 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:17:02,837 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,843 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,849 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,856 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,865 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,875 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,885 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,897 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,907 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,919 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,930 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,941 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,954 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,962 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,975 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,986 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:02,996 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,008 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,023 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,035 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,048 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,059 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,072 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,089 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,104 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,121 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,132 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,148 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,160 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,173 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,184 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,189 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,203 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,219 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,230 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,247 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,264 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,280 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,294 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,310 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,326 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,341 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,357 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,392 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,406 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,422 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,437 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,453 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,469 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,486 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,502 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,518 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,531 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,548 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,563 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,580 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,595 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,612 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,627 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,643 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,658 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,678 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,692 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,710 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,724 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,740 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,755 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,772 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,787 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,802 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:03,822 WARNING feeds.binance: [2.3 1m Klines (ClickHouse)] parse_error channel=klines error=Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:17:14,233 ERROR asyncio: [2.3 1m Klines (ClickHouse)] unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-1' coro=<run_preset() done, defined at C:\Users\felix_n9pq3vl\Desktop\Code\AB_33\CC_Data_Collection\AC_Granular\main_collection\run_feeds.py:293> exception=TypeError('Pipeline.aclose() takes 1 positional argument but 2 were given')>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\asyncio\base_events.py", line 2012, in _run_once
+    event_list = self._selector.select(timeout)
+  File "C:\Python313\Lib\asyncio\windows_events.py", line 446, in select
+    self._poll(timeout)
+    ~~~~~~~~~~^^^^^^^^^
+  File "C:\Python313\Lib\asyncio\windows_events.py", line 775, in _poll
+    status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+  File "C:\Python313\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\felix_n9pq3vl\Desktop\Code\AB_33\CC_Data_Collection\AC_Granular\main_collection\run_feeds.py", line 461, in run_preset
+    await orchestrator.stop()
+  File "C:\Users\felix_n9pq3vl\Desktop\Code\AB_33\CC_Data_Collection\AC_Granular\main_collection\feeds\orchestrator.py", line 48, in stop
+    await self.router.stop()
+  File "C:\Users\felix_n9pq3vl\Desktop\Code\AB_33\CC_Data_Collection\AC_Granular\main_collection\feeds\core\router.py", line 42, in stop
+    await writer.stop()
+  File "C:\Users\felix_n9pq3vl\Desktop\Code\AB_33\CC_Data_Collection\AC_Granular\main_collection\feeds\core\pipeline.py", line 38, in stop
+    await self._flush_task
+  File "C:\Users\felix_n9pq3vl\Desktop\Code\AB_33\CC_Data_Collection\AC_Granular\main_collection\feeds\core\pipeline.py", line 44, in _auto_flush
+    await self.flush()
+  File "C:\Users\felix_n9pq3vl\Desktop\Code\AB_33\CC_Data_Collection\AC_Granular\main_collection\feeds\pipelines\redis_writer.py", line 113, in flush
+    await pipe.close()
+  File "C:\Python313\Lib\site-packages\redis\asyncio\client.py", line 645, in close
+    await self.aclose(close_connection_pool)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Pipeline.aclose() takes 1 positional argument but 2 were given
+2026-02-05 08:20:23,325 INFO root: [2.3 1m Klines (ClickHouse)] CPU affinity set via psutil: core=1
+2026-02-05 08:20:23,326 INFO root: [2.3 1m Klines (ClickHouse)] Start preset=2.3 1m Klines (ClickHouse) output_mode=redis
+2026-02-05 08:20:25,212 INFO root: [2.3 1m Klines (ClickHouse)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:20:25,213 INFO root: [2.3 1m Klines (ClickHouse)] Preset config: label=2.3 1m Klines (ClickHouse) log_interval_s=60 health=True output_mode=redis
+2026-02-05 08:20:25,213 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 08:20:25,247 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 08:20:25,249 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=144
+2026-02-05 08:20:25,401 WARNING root: [2.3 1m Klines (ClickHouse)] ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-02-05 08:20:26,137 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:20:26,193 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:20:26,196 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:21:25,255 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+3 discs+0
+2026-02-05 08:21:25,416 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] redis: events+544/60s items+1088/60s flushed+1046/60s
+2026-02-05 08:21:25,417 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:21:25,422 INFO root: [2.3 1m Klines (ClickHouse)] [loss] klines: ws->router 0 | router->writer 0 | writer->ch 21
+2026-02-05 08:21:25,423 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=523 pending=21 missing=21 backlog=21 backlog_ws=21
+2026-02-05 08:21:25,443 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:21:25,605 WARNING root: [2.3 1m Klines (ClickHouse)] [2.3 1m Klines (ClickHouse)] [ALERT-RED] missing data channel=klines missing=21/544 (3.86%)
+2026-02-05 08:21:25,658 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=8.1% | py_rss=68.0MB
+2026-02-05 08:34:53,523 INFO root: [2.3 1m Klines (ClickHouse)] CPU affinity set via psutil: core=1
+2026-02-05 08:34:53,523 INFO root: [2.3 1m Klines (ClickHouse)] Start preset=2.3 1m Klines (ClickHouse) output_mode=clickhouse
+2026-02-05 08:34:56,061 INFO root: [2.3 1m Klines (ClickHouse)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:34:56,062 INFO root: [2.3 1m Klines (ClickHouse)] Preset config: label=2.3 1m Klines (ClickHouse) log_interval_s=60 health=True output_mode=clickhouse
+2026-02-05 08:34:56,062 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 08:34:56,100 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=200
+2026-02-05 08:34:56,102 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connect channel=klines streams=144
+2026-02-05 08:34:56,251 WARNING root: [2.3 1m Klines (ClickHouse)] ClickHouse process not found. Set CLICKHOUSE_PID to force tracking.
+2026-02-05 08:34:56,985 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:34:57,043 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:34:57,053 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] connected channel=klines
+2026-02-05 08:35:56,105 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+3 discs+0
+2026-02-05 08:35:56,264 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 08:35:56,265 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:35:56,265 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:35:56,268 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:35:56,408 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=7.3% | py_rss=68.1MB
+2026-02-05 08:36:56,114 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-02-05 08:36:56,277 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:36:56,480 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 08:36:56,481 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:36:56,482 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:36:56,677 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.2% | py_rss=68.4MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-02-05 08:37:56,121 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-02-05 08:37:56,292 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:37:56,752 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 08:37:56,754 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:37:56,757 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:37:56,961 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=5.8% | py_rss=68.9MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-02-05 08:38:56,130 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-02-05 08:38:56,294 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:38:57,007 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 08:38:57,008 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:38:57,008 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:38:57,124 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=7.1% | py_rss=69.0MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-02-05 08:39:56,134 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-02-05 08:39:56,297 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:39:57,168 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 08:39:57,169 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:39:57,170 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:39:57,277 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=7.0% | py_rss=69.1MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s
+2026-02-05 08:40:56,135 INFO feeds.binance: [2.3 1m Klines (ClickHouse)] ws-stats klines: msgs+544/60s conns+0 discs+0
+2026-02-05 08:40:56,303 INFO root: [2.3 1m Klines (ClickHouse)] HEALTH channel=klines lag_ms avg=0.0 max=0
+2026-02-05 08:40:57,342 INFO root: [2.3 1m Klines (ClickHouse)] [ingest] clickhouse: events+544/60s items+544/60s flushed+544/60s
+2026-02-05 08:40:57,343 INFO root: [2.3 1m Klines (ClickHouse)] [diff] klines: ws+544 routed+544 written+544 lost+0
+2026-02-05 08:40:57,344 INFO root: [2.3 1m Klines (ClickHouse)] [health] klines: expected=544/60s flushed=544 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:40:57,454 INFO root: [2.3 1m Klines (ClickHouse)] [sys] py_cpu=6.5% | py_rss=69.3MB | py_io_read=0.00MB/60s | py_io_write=0.00MB/60s

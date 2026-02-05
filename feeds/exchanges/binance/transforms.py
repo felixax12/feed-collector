@@ -165,6 +165,9 @@ def kline_from_stream(
         low=to_decimal(k["l"]),
         close=to_decimal(k["c"]),
         volume=to_decimal(k["v"]),
+        quote_volume=to_decimal(k["q"]),
+        taker_buy_base_volume=to_decimal(k["V"]),
+        taker_buy_quote_volume=to_decimal(k["Q"]),
         trade_count=int(k["n"]),
         is_closed=bool(k["x"]),
     )

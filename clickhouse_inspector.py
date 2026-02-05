@@ -247,8 +247,14 @@ def _detect_time_divisor(client, current_db: str, table: str) -> tuple[int, str]
     return 1000, "ms"
 
 
-def check_mark_price_completeness(client, settings: Settings, current_db: str) -> None:
-    print("\nMark-Price Vollstaendigkeit (1 Zeile pro Symbol pro Sekunde)")
+def _check_per_second_completeness(
+    client,
+    current_db: str,
+    *,
+    table: str,
+    title: str,
+) -> None:
+    print(f"\n{title}")
     minutes_raw = input("Zeitraum in Minuten (Default 10, 'all' fuer alles): ").strip().lower()
     if minutes_raw in {"", "10"}:
         minutes = 10
@@ -260,15 +266,15 @@ def check_mark_price_completeness(client, settings: Settings, current_db: str) -
         print("Ungueltige Eingabe.")
         return
 
-    divisor, unit = _detect_time_divisor(client, current_db, "mark_price")
+    divisor, unit = _detect_time_divisor(client, current_db, table)
     bounds = client.query(
         "SELECT min(toUInt32(ts_event_ns/{div})) AS min_sec, "
         "max(toUInt32(ts_event_ns/{div})) AS max_sec "
-        "FROM {db}.mark_price".format(db=current_db, div=divisor)
+        "FROM {db}.{table}".format(db=current_db, table=table, div=divisor)
     )
     min_sec, max_sec = bounds.result_rows[0]
     if min_sec is None or max_sec is None:
-        print("Keine Daten in mark_price.")
+        print(f"Keine Daten in {table}.")
         return
 
     if minutes is None:
@@ -278,8 +284,10 @@ def check_mark_price_completeness(client, settings: Settings, current_db: str) -
     end_sec = int(max_sec)
 
     expected = client.query(
-        "SELECT countDistinct(instrument) FROM {db}.mark_price "
-        "WHERE toUInt32(ts_event_ns/{div}) BETWEEN %(start)s AND %(end)s".format(db=current_db, div=divisor),
+        "SELECT countDistinct(instrument) FROM {db}.{table} "
+        "WHERE toUInt32(ts_event_ns/{div}) BETWEEN %(start)s AND %(end)s".format(
+            db=current_db, table=table, div=divisor
+        ),
         parameters={"start": start_sec, "end": end_sec},
     )
     expected_symbols = expected.result_rows[0][0]
@@ -308,12 +316,12 @@ def check_mark_price_completeness(client, settings: Settings, current_db: str) -
               SELECT
                 toUInt32(ts_event_ns/{div}) AS sec,
                 countDistinct(instrument) AS actual_symbols
-              FROM {db}.mark_price
+              FROM {db}.{table}
               WHERE sec BETWEEN start_sec AND end_sec
               GROUP BY sec
             ) AS actual USING sec
         )
-        """.format(db=current_db, div=divisor),
+        """.format(db=current_db, table=table, div=divisor),
         parameters={"start": start_sec, "end": end_sec, "expected": expected_symbols},
     )
     missing_total, seconds_with_missing, max_missing = summary.result_rows[0]
@@ -342,13 +350,13 @@ def check_mark_price_completeness(client, settings: Settings, current_db: str) -
             SELECT
               toUInt32(ts_event_ns/{div}) AS sec,
               countDistinct(instrument) AS actual_symbols
-            FROM {db}.mark_price
+            FROM {db}.{table}
             WHERE sec BETWEEN start_sec AND end_sec
             GROUP BY sec
           ) AS actual USING sec
         WHERE missing > 0
         ORDER BY sec
-        """.format(db=current_db, div=divisor),
+        """.format(db=current_db, table=table, div=divisor),
         parameters={"start": start_sec, "end": end_sec, "expected": expected_symbols},
     )
     print("\nLuecken pro Sekunde (erste Zeilen):")
@@ -363,17 +371,35 @@ def check_mark_price_completeness(client, settings: Settings, current_db: str) -
         SELECT
           instrument,
           expected_secs - countDistinct(toUInt32(ts_event_ns/{div})) AS missing
-        FROM {db}.mark_price
+        FROM {db}.{table}
         WHERE toUInt32(ts_event_ns/{div}) BETWEEN start_sec AND end_sec
         GROUP BY instrument
         HAVING missing > 0
         ORDER BY missing DESC
         LIMIT 20
-        """.format(db=current_db, div=divisor),
+        """.format(db=current_db, table=table, div=divisor),
         parameters={"start": start_sec, "end": end_sec},
     )
     print("\nTop 20 Symbole mit Luecken:")
     print_rows(per_symbol.column_names, per_symbol.result_rows)
+
+
+def check_mark_price_completeness(client, settings: Settings, current_db: str) -> None:
+    _check_per_second_completeness(
+        client,
+        current_db,
+        table="mark_price",
+        title="Mark-Price Vollstaendigkeit (1 Zeile pro Symbol pro Sekunde)",
+    )
+
+
+def check_funding_completeness(client, settings: Settings, current_db: str) -> None:
+    _check_per_second_completeness(
+        client,
+        current_db,
+        table="funding",
+        title="Funding Vollstaendigkeit (1 Zeile pro Symbol pro Sekunde)",
+    )
 
 
 def check_ob_top5_completeness(client, settings: Settings, current_db: str) -> None:
@@ -840,6 +866,7 @@ def main() -> None:
         "12": ("Klines Vollstaendigkeit (1m, is_closed)", check_klines_1m_completeness),
         "13": ("AggTrades Vollstaendigkeit (5s)", check_agg_trades_5s_completeness),
         "14": ("Letzte Zeilen anzeigen", show_latest_rows),
+        "15": ("Funding Vollstaendigkeit (1s)", check_funding_completeness),
         "q": ("Beenden", lambda *args: None),
     }
 

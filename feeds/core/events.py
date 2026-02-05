@@ -105,6 +105,9 @@ class KlineEvent(BaseEvent):
     low: Decimal
     close: Decimal
     volume: Decimal
+    quote_volume: Decimal
+    taker_buy_base_volume: Decimal
+    taker_buy_quote_volume: Decimal
     trade_count: int
     is_closed: bool
 

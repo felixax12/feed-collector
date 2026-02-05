@@ -1,0 +1,440 @@
+2026-02-05 08:27:05,269 INFO root: [2.4 AggTrades 5s (Redis)] CPU affinity set via psutil: core=2
+2026-02-05 08:27:05,274 INFO root: [2.4 AggTrades 5s (Redis)] Start preset=2.4 AggTrades 5s (Redis) output_mode=redis
+2026-02-05 08:27:06,701 INFO root: [2.4 AggTrades 5s (Redis)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into Redis. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:27:06,706 INFO root: [2.4 AggTrades 5s (Redis)] Preset config: label=2.4 AggTrades 5s (Redis) log_interval_s=5 health=True output_mode=redis
+2026-02-05 08:27:06,708 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,791 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,793 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,794 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,796 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,797 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,798 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,800 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,801 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,801 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:27:06,803 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=44
+2026-02-05 08:27:07,908 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,910 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,911 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,917 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,919 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,925 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,925 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,929 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,936 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,938 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:07,950 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:27:11,805 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+631/5s conns+11 discs+0
+2026-02-05 08:27:11,806 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+1717/5s proc+1716/5s emit+631/5s drop+0/5s
+2026-02-05 08:27:11,806 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+631/5s items+1262/5s flushed+1438/5s
+2026-02-05 08:27:11,807 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+631 routed+631 written+631 lost+0
+2026-02-05 08:27:11,808 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -88
+2026-02-05 08:27:11,808 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=719 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:27:11,816 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=2367.3 max=2818
+2026-02-05 08:27:11,913 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=16.5% | py_rss=74.4MB
+2026-02-05 08:27:16,809 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+730/5s conns+0 discs+0
+2026-02-05 08:27:16,810 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2286/5s proc+2286/5s emit+730/5s drop+0/5s
+2026-02-05 08:27:16,822 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1785.0 max=2890
+2026-02-05 08:27:16,974 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+733/5s items+1466/5s flushed+1642/5s
+2026-02-05 08:27:16,974 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+733 routed+733 written+733 lost+0
+2026-02-05 08:27:16,978 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -88
+2026-02-05 08:27:16,979 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=821 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:27:16,979 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=10.8% | py_rss=75.2MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:21,812 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+773/5s conns+0 discs+0
+2026-02-05 08:27:21,813 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2471/5s proc+2472/5s emit+773/5s drop+0/5s
+2026-02-05 08:27:21,829 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1213.1 max=2946
+2026-02-05 08:27:21,981 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+774/5s items+1548/5s flushed+1710/5s
+2026-02-05 08:27:21,982 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+774 routed+774 written+774 lost+0
+2026-02-05 08:27:21,982 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -81
+2026-02-05 08:27:21,982 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=855 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:27:21,984 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=9.7% | py_rss=75.7MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:26,825 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+710/5s conns+0 discs+0
+2026-02-05 08:27:26,826 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2277/5s proc+2276/5s emit+710/5s drop+0/5s
+2026-02-05 08:27:26,833 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1819.9 max=3000
+2026-02-05 08:27:26,990 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+712/5s items+1424/5s flushed+1388/5s
+2026-02-05 08:27:26,991 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+712 routed+712 written+712 lost+0
+2026-02-05 08:27:26,992 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 18
+2026-02-05 08:27:26,992 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=694 pending=18 missing=0 backlog=0 backlog_ws=18
+2026-02-05 08:27:26,993 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=12.8% | py_rss=75.7MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:31,829 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+731/5s conns+0 discs+0
+2026-02-05 08:27:31,830 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2884/5s proc+2885/5s emit+731/5s drop+0/5s
+2026-02-05 08:27:31,835 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=708.1 max=2060
+2026-02-05 08:27:31,997 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+727/5s items+1454/5s flushed+1422/5s
+2026-02-05 08:27:31,998 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+727 routed+727 written+727 lost+0
+2026-02-05 08:27:31,999 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 16
+2026-02-05 08:27:32,000 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=711 pending=16 missing=0 backlog=0 backlog_ws=16
+2026-02-05 08:27:32,001 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=13.4% | py_rss=75.7MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:36,831 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+685/5s conns+0 discs+0
+2026-02-05 08:27:36,832 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+3249/5s proc+3248/5s emit+685/5s drop+0/5s
+2026-02-05 08:27:36,838 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1004.1 max=2142
+2026-02-05 08:27:37,002 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+714/5s items+1428/5s flushed+1378/5s
+2026-02-05 08:27:37,003 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+714 routed+714 written+714 lost+0
+2026-02-05 08:27:37,003 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 25
+2026-02-05 08:27:37,003 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=689 pending=25 missing=0 backlog=0 backlog_ws=25
+2026-02-05 08:27:37,004 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=16.2% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:41,837 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+864/5s conns+0 discs+0
+2026-02-05 08:27:41,837 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=7 enq+3995/5s proc+3989/5s emit+864/5s drop+0/5s
+2026-02-05 08:27:41,840 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=520.7 max=2213
+2026-02-05 08:27:42,009 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+840/5s items+1680/5s flushed+1842/5s
+2026-02-05 08:27:42,010 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+840 routed+840 written+840 lost+0
+2026-02-05 08:27:42,010 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -81
+2026-02-05 08:27:42,011 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=921 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:27:42,011 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=14.7% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:46,840 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+798/5s conns+0 discs+0
+2026-02-05 08:27:46,840 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=2 enq+6270/5s proc+6275/5s emit+798/5s drop+0/5s
+2026-02-05 08:27:46,842 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1284.2 max=2283
+2026-02-05 08:27:47,012 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+799/5s items+1598/5s flushed+1576/5s
+2026-02-05 08:27:47,013 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+799 routed+799 written+799 lost+0
+2026-02-05 08:27:47,013 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 11
+2026-02-05 08:27:47,014 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=788 pending=11 missing=0 backlog=0 backlog_ws=11
+2026-02-05 08:27:47,014 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=14.4% | py_rss=76.1MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:51,848 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+778/5s conns+0 discs+0
+2026-02-05 08:27:51,848 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=2 enq+3588/5s proc+3588/5s emit+778/5s drop+0/5s
+2026-02-05 08:27:51,849 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=605.0 max=2351
+2026-02-05 08:27:52,015 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+777/5s items+1554/5s flushed+1724/5s
+2026-02-05 08:27:52,016 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+777 routed+777 written+777 lost+0
+2026-02-05 08:27:52,017 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -85
+2026-02-05 08:27:52,017 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=862 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:27:52,018 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=14.1% | py_rss=76.1MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:27:56,853 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+752/5s conns+0 discs+0
+2026-02-05 08:27:56,854 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=2 enq+3056/5s proc+3056/5s emit+752/5s drop+0/5s
+2026-02-05 08:27:56,855 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=992.1 max=2431
+2026-02-05 08:27:57,022 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+750/5s items+1500/5s flushed+1664/5s
+2026-02-05 08:27:57,023 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+750 routed+750 written+750 lost+0
+2026-02-05 08:27:57,023 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -82
+2026-02-05 08:27:57,024 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=832 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:27:57,024 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=18.1% | py_rss=76.1MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:01,864 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+880/5s conns+0 discs+0
+2026-02-05 08:28:01,865 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+4373/5s proc+4375/5s emit+880/5s drop+0/5s
+2026-02-05 08:28:01,866 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=830.5 max=2496
+2026-02-05 08:28:02,025 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+882/5s items+1764/5s flushed+1714/5s
+2026-02-05 08:28:02,026 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+882 routed+882 written+882 lost+0
+2026-02-05 08:28:02,027 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 25
+2026-02-05 08:28:02,027 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=857 pending=25 missing=0 backlog=0 backlog_ws=25
+2026-02-05 08:28:02,028 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=17.5% | py_rss=76.1MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:06,871 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+906/5s conns+0 discs+0
+2026-02-05 08:28:06,871 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+5598/5s proc+5598/5s emit+906/5s drop+0/5s
+2026-02-05 08:28:06,872 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=791.6 max=2548
+2026-02-05 08:28:07,029 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+913/5s items+1826/5s flushed+1770/5s
+2026-02-05 08:28:07,030 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+913 routed+913 written+913 lost+0
+2026-02-05 08:28:07,030 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 28
+2026-02-05 08:28:07,032 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=885 pending=28 missing=0 backlog=0 backlog_ws=28
+2026-02-05 08:28:07,032 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=19.0% | py_rss=76.1MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:11,875 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+720/5s conns+0 discs+0
+2026-02-05 08:28:11,876 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2751/5s proc+2751/5s emit+720/5s drop+0/5s
+2026-02-05 08:28:11,877 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1226.9 max=2597
+2026-02-05 08:28:12,035 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+717/5s items+1434/5s flushed+1602/5s
+2026-02-05 08:28:12,035 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+717 routed+717 written+717 lost+0
+2026-02-05 08:28:12,036 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -84
+2026-02-05 08:28:12,036 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=801 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:28:12,140 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=13.5% | py_rss=76.2MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:16,885 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+786/5s conns+0 discs+0
+2026-02-05 08:28:16,886 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2984/5s proc+2984/5s emit+786/5s drop+0/5s
+2026-02-05 08:28:16,886 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=944.1 max=2661
+2026-02-05 08:28:17,193 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+776/5s items+1552/5s flushed+1722/5s
+2026-02-05 08:28:17,194 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+776 routed+776 written+776 lost+0
+2026-02-05 08:28:17,195 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -85
+2026-02-05 08:28:17,195 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=861 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:28:17,196 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=16.7% | py_rss=76.3MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:21,898 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+809/5s conns+0 discs+0
+2026-02-05 08:28:21,898 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+3187/5s proc+3187/5s emit+809/5s drop+0/5s
+2026-02-05 08:28:21,899 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1009.6 max=2746
+2026-02-05 08:28:22,202 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+818/5s items+1636/5s flushed+1806/5s
+2026-02-05 08:28:22,204 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+818 routed+818 written+818 lost+0
+2026-02-05 08:28:22,205 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -85
+2026-02-05 08:28:22,206 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=903 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:28:22,206 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=15.3% | py_rss=76.3MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:26,900 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+689/5s conns+0 discs+0
+2026-02-05 08:28:26,900 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2203/5s proc+2203/5s emit+689/5s drop+0/5s
+2026-02-05 08:28:26,901 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1844.8 max=2827
+2026-02-05 08:28:27,220 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+693/5s items+1386/5s flushed+1550/5s
+2026-02-05 08:28:27,221 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+693 routed+693 written+693 lost+0
+2026-02-05 08:28:27,222 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -82
+2026-02-05 08:28:27,223 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=775 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:28:27,223 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=13.1% | py_rss=76.3MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:31,905 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+746/5s conns+0 discs+0
+2026-02-05 08:28:31,905 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2524/5s proc+2523/5s emit+746/5s drop+0/5s
+2026-02-05 08:28:31,906 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=785.1 max=2966
+2026-02-05 08:28:32,225 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+1278/5s items+2556/5s flushed+2838/5s
+2026-02-05 08:28:32,226 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+1278 routed+1278 written+1278 lost+0
+2026-02-05 08:28:32,226 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -141
+2026-02-05 08:28:32,227 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=1419 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:28:32,227 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=13.1% | py_rss=76.4MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:36,911 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+671/5s conns+0 discs+0
+2026-02-05 08:28:36,911 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=2 enq+2167/5s proc+2166/5s emit+671/5s drop+0/5s
+2026-02-05 08:28:36,912 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1295.5 max=2031
+2026-02-05 08:28:37,230 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+677/5s items+1354/5s flushed+1324/5s
+2026-02-05 08:28:37,231 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+677 routed+677 written+677 lost+0
+2026-02-05 08:28:37,232 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 15
+2026-02-05 08:28:37,232 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=662 pending=15 missing=0 backlog=0 backlog_ws=15
+2026-02-05 08:28:37,233 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=11.5% | py_rss=76.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:41,914 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+830/5s conns+0 discs+0
+2026-02-05 08:28:41,914 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+3680/5s proc+3681/5s emit+830/5s drop+0/5s
+2026-02-05 08:28:41,915 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=560.5 max=2103
+2026-02-05 08:28:42,233 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+824/5s items+1648/5s flushed+1576/5s
+2026-02-05 08:28:42,234 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+824 routed+824 written+824 lost+0
+2026-02-05 08:28:42,234 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 36
+2026-02-05 08:28:42,234 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=788 pending=36 missing=0 backlog=0 backlog_ws=36
+2026-02-05 08:28:42,234 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=16.9% | py_rss=76.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:46,915 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+728/5s conns+0 discs+0
+2026-02-05 08:28:46,915 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2130/5s proc+2131/5s emit+728/5s drop+0/5s
+2026-02-05 08:28:46,916 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1164.5 max=2162
+2026-02-05 08:28:47,250 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+404/5s items+808/5s flushed+558/5s
+2026-02-05 08:28:47,251 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+208 routed+404 written+404 lost+-196
+2026-02-05 08:28:47,251 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router -196 | router->writer 0 | writer->flush 125
+2026-02-05 08:28:47,251 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=279 pending=125 missing=265 backlog=265 backlog_ws=0
+2026-02-05 08:28:47,252 WARNING root: [2.4 AggTrades 5s (Redis)] [2.4 AggTrades 5s (Redis)] [ALERT-RED] missing data channel=agg_trades_5s missing=265/544 (48.71%)
+2026-02-05 08:28:47,378 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=9.7% | py_rss=76.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:51,917 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+742/5s conns+0 discs+0
+2026-02-05 08:28:51,918 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2407/5s proc+2406/5s emit+742/5s drop+0/5s
+2026-02-05 08:28:51,918 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=811.7 max=2219
+2026-02-05 08:28:52,384 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+1074/5s items+2148/5s flushed+2632/5s
+2026-02-05 08:28:52,385 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+1270 routed+1074 written+1074 lost+196
+2026-02-05 08:28:52,385 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 196 | router->writer 0 | writer->flush -242
+2026-02-05 08:28:52,385 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=1316 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:28:52,385 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=11.9% | py_rss=76.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:28:56,921 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+700/5s conns+0 discs+0
+2026-02-05 08:28:56,922 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+1683/5s proc+1684/5s emit+700/5s drop+0/5s
+2026-02-05 08:28:56,923 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1181.0 max=2311
+2026-02-05 08:28:57,400 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+259/5s items+518/5s flushed+376/5s
+2026-02-05 08:28:57,401 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+159 routed+259 written+259 lost+-100
+2026-02-05 08:28:57,402 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router -100 | router->writer 0 | writer->flush 71
+2026-02-05 08:28:57,403 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=188 pending=71 missing=356 backlog=356 backlog_ws=0
+2026-02-05 08:28:57,404 WARNING root: [2.4 AggTrades 5s (Redis)] [2.4 AggTrades 5s (Redis)] [ALERT-RED] missing data channel=agg_trades_5s missing=356/544 (65.44%)
+2026-02-05 08:28:57,405 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=11.8% | py_rss=76.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:29:01,923 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+802/5s conns+0 discs+0
+2026-02-05 08:29:01,924 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=2 enq+3660/5s proc+3658/5s emit+802/5s drop+0/5s
+2026-02-05 08:29:01,924 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=819.2 max=2383
+2026-02-05 08:29:02,411 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+699/5s items+1398/5s flushed+1724/5s
+2026-02-05 08:29:02,412 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+799 routed+699 written+699 lost+100
+2026-02-05 08:29:02,415 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 100 | router->writer 0 | writer->flush -163
+2026-02-05 08:29:02,419 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=862 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:29:02,420 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=19.9% | py_rss=76.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:31:52,363 INFO root: [2.4 AggTrades 5s (Redis)] CPU affinity set via psutil: core=2
+2026-02-05 08:31:52,364 INFO root: [2.4 AggTrades 5s (Redis)] Start preset=2.4 AggTrades 5s (Redis) output_mode=redis
+2026-02-05 08:31:53,942 INFO root: [2.4 AggTrades 5s (Redis)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into Redis. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:31:53,943 INFO root: [2.4 AggTrades 5s (Redis)] Preset config: label=2.4 AggTrades 5s (Redis) log_interval_s=5 health=True output_mode=redis
+2026-02-05 08:31:53,945 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,016 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,018 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,019 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,020 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,022 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,023 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,024 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,025 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,026 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:31:54,028 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=44
+2026-02-05 08:31:54,976 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,212 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,223 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,224 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,226 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,229 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,230 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,231 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,235 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,236 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:55,241 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:31:59,033 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+1088/5s conns+11 discs+0
+2026-02-05 08:31:59,034 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=28 enq+3384/5s proc+3356/5s emit+1088/5s drop+0/5s
+2026-02-05 08:31:59,034 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+1088/5s items+2176/5s flushed+2576/5s
+2026-02-05 08:31:59,035 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+1088 routed+1088 written+1088 lost+0
+2026-02-05 08:31:59,035 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -200
+2026-02-05 08:31:59,035 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=1288 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:31:59,041 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=2104.0 max=2104
+2026-02-05 08:31:59,152 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=20.4% | py_rss=74.7MB
+2026-02-05 08:32:04,036 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+865/5s conns+0 discs+0
+2026-02-05 08:32:04,036 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+4425/5s proc+4452/5s emit+865/5s drop+0/5s
+2026-02-05 08:32:04,045 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1668.4 max=2161
+2026-02-05 08:32:04,210 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+865/5s items+1730/5s flushed+1868/5s
+2026-02-05 08:32:04,211 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+865 routed+865 written+865 lost+0
+2026-02-05 08:32:04,211 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -69
+2026-02-05 08:32:04,212 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=934 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:04,212 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=22.2% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:32:09,037 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+794/5s conns+0 discs+0
+2026-02-05 08:32:09,038 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2616/5s proc+2617/5s emit+794/5s drop+0/5s
+2026-02-05 08:32:09,047 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1459.5 max=2224
+2026-02-05 08:32:09,217 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+794/5s items+1588/5s flushed+1744/5s
+2026-02-05 08:32:09,218 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+794 routed+794 written+794 lost+0
+2026-02-05 08:32:09,218 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -78
+2026-02-05 08:32:09,219 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=872 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:09,219 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=14.4% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:32:14,044 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+686/5s conns+0 discs+0
+2026-02-05 08:32:14,044 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2477/5s proc+2476/5s emit+686/5s drop+0/5s
+2026-02-05 08:32:14,055 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1427.9 max=2361
+2026-02-05 08:32:14,219 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+686/5s items+1372/5s flushed+1542/5s
+2026-02-05 08:32:14,220 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+686 routed+686 written+686 lost+0
+2026-02-05 08:32:14,220 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -85
+2026-02-05 08:32:14,220 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=771 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:14,221 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=12.2% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:32:19,048 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+717/5s conns+0 discs+0
+2026-02-05 08:32:19,048 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=2 enq+3049/5s proc+3048/5s emit+717/5s drop+0/5s
+2026-02-05 08:32:19,056 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=2042.9 max=2416
+2026-02-05 08:32:19,223 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+717/5s items+1434/5s flushed+1526/5s
+2026-02-05 08:32:19,223 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+717 routed+717 written+717 lost+0
+2026-02-05 08:32:19,224 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -46
+2026-02-05 08:32:19,225 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=763 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:19,226 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=15.3% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:32:24,050 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+722/5s conns+0 discs+0
+2026-02-05 08:32:24,051 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+2964/5s proc+2966/5s emit+722/5s drop+0/5s
+2026-02-05 08:32:24,063 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1787.7 max=2500
+2026-02-05 08:32:24,228 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+722/5s items+1444/5s flushed+1610/5s
+2026-02-05 08:32:24,228 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+722 routed+722 written+722 lost+0
+2026-02-05 08:32:24,228 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -83
+2026-02-05 08:32:24,229 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=805 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:24,230 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=12.5% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:32:29,055 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+795/5s conns+0 discs+0
+2026-02-05 08:32:29,055 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2697/5s proc+2696/5s emit+795/5s drop+0/5s
+2026-02-05 08:32:29,066 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=2097.4 max=2564
+2026-02-05 08:32:29,235 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+795/5s items+1590/5s flushed+1744/5s
+2026-02-05 08:32:29,236 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+795 routed+795 written+795 lost+0
+2026-02-05 08:32:29,237 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -77
+2026-02-05 08:32:29,237 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=872 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:29,238 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=14.7% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:32:34,056 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+722/5s conns+0 discs+0
+2026-02-05 08:32:34,057 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+1871/5s proc+1872/5s emit+722/5s drop+0/5s
+2026-02-05 08:32:34,074 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1620.9 max=2648
+2026-02-05 08:32:34,242 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+722/5s items+1444/5s flushed+1612/5s
+2026-02-05 08:32:34,242 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+722 routed+722 written+722 lost+0
+2026-02-05 08:32:34,242 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -84
+2026-02-05 08:32:34,243 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=806 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:34,243 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=14.4% | py_rss=75.6MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:32:39,059 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+673/5s conns+0 discs+0
+2026-02-05 08:32:39,060 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+1619/5s proc+1619/5s emit+673/5s drop+0/5s
+2026-02-05 08:32:39,087 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=2015.0 max=2720
+2026-02-05 08:32:39,244 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+673/5s items+1346/5s flushed+1524/5s
+2026-02-05 08:32:39,245 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+673 routed+673 written+673 lost+0
+2026-02-05 08:32:39,246 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -89
+2026-02-05 08:32:39,247 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=762 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:32:39,248 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=10.9% | py_rss=75.6MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:33:25,233 INFO root: [2.4 AggTrades 5s (Redis)] CPU affinity set via psutil: core=2
+2026-02-05 08:33:25,234 INFO root: [2.4 AggTrades 5s (Redis)] Start preset=2.4 AggTrades 5s (Redis) output_mode=redis
+2026-02-05 08:33:26,921 INFO root: [2.4 AggTrades 5s (Redis)] LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, flushed=rows inserted into Redis. pending=written-flushed (buffer), missing=expected-flushed (per interval), backlog=rolling deficit vs expected, backlog_ws=rolling deficit vs ws (ingest throughput vs input).
+2026-02-05 08:33:26,922 INFO root: [2.4 AggTrades 5s (Redis)] Preset config: label=2.4 AggTrades 5s (Redis) log_interval_s=5 health=True output_mode=redis
+2026-02-05 08:33:26,922 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,958 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,960 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,961 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,966 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,970 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,971 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,972 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,973 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,975 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=50
+2026-02-05 08:33:26,977 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connect channel=agg_trades_5s streams=44
+2026-02-05 08:33:27,936 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,104 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,108 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,117 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,117 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,124 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,126 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,128 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,134 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,135 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:28,139 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] connected channel=agg_trades_5s
+2026-02-05 08:33:31,980 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+702/5s conns+11 discs+0
+2026-02-05 08:33:31,981 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2081/5s proc+2080/5s emit+702/5s drop+0/5s
+2026-02-05 08:33:31,981 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+702/5s items+1404/5s flushed+1574/5s
+2026-02-05 08:33:31,981 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+702 routed+702 written+702 lost+0
+2026-02-05 08:33:31,982 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -85
+2026-02-05 08:33:31,982 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=787 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:33:31,989 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=2120.9 max=2989
+2026-02-05 08:33:32,085 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=18.1% | py_rss=74.4MB
+2026-02-05 08:33:36,984 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+703/5s conns+0 discs+0
+2026-02-05 08:33:36,985 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2295/5s proc+2295/5s emit+703/5s drop+0/5s
+2026-02-05 08:33:37,000 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=836.1 max=2096
+2026-02-05 08:33:37,136 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+706/5s items+1412/5s flushed+1382/5s
+2026-02-05 08:33:37,137 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+706 routed+706 written+706 lost+0
+2026-02-05 08:33:37,137 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush 15
+2026-02-05 08:33:37,138 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=691 pending=15 missing=0 backlog=0 backlog_ws=15
+2026-02-05 08:33:37,139 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=12.4% | py_rss=75.2MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:33:41,986 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+672/5s conns+0 discs+0
+2026-02-05 08:33:41,986 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+1486/5s proc+1486/5s emit+672/5s drop+0/5s
+2026-02-05 08:33:42,001 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1111.8 max=2160
+2026-02-05 08:33:42,139 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+675/5s items+1350/5s flushed+1520/5s
+2026-02-05 08:33:42,140 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+675 routed+675 written+675 lost+0
+2026-02-05 08:33:42,141 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -85
+2026-02-05 08:33:42,141 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=760 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:33:42,142 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=6.9% | py_rss=75.3MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:33:46,988 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+760/5s conns+0 discs+0
+2026-02-05 08:33:46,989 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+3144/5s proc+3144/5s emit+760/5s drop+0/5s
+2026-02-05 08:33:47,006 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1088.3 max=2251
+2026-02-05 08:33:47,144 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+754/5s items+1508/5s flushed+1678/5s
+2026-02-05 08:33:47,149 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+754 routed+754 written+754 lost+0
+2026-02-05 08:33:47,150 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -85
+2026-02-05 08:33:47,150 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=839 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:33:47,150 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=16.5% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:33:51,989 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+652/5s conns+0 discs+0
+2026-02-05 08:33:51,991 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+1539/5s proc+1540/5s emit+652/5s drop+0/5s
+2026-02-05 08:33:52,007 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1284.1 max=2368
+2026-02-05 08:33:52,159 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+657/5s items+1314/5s flushed+1494/5s
+2026-02-05 08:33:52,161 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+657 routed+657 written+657 lost+0
+2026-02-05 08:33:52,161 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -90
+2026-02-05 08:33:52,162 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=747 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:33:52,162 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=10.9% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:33:56,992 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+663/5s conns+0 discs+0
+2026-02-05 08:33:56,992 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+1980/5s proc+1980/5s emit+663/5s drop+0/5s
+2026-02-05 08:33:57,010 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1271.9 max=2445
+2026-02-05 08:33:57,164 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+667/5s items+1334/5s flushed+1508/5s
+2026-02-05 08:33:57,165 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+667 routed+667 written+667 lost+0
+2026-02-05 08:33:57,167 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -87
+2026-02-05 08:33:57,168 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=754 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:33:57,169 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=15.6% | py_rss=75.5MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:34:01,995 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+820/5s conns+0 discs+0
+2026-02-05 08:34:01,996 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+4099/5s proc+4098/5s emit+820/5s drop+0/5s
+2026-02-05 08:34:02,012 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1015.5 max=2534
+2026-02-05 08:34:02,172 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+813/5s items+1626/5s flushed+1780/5s
+2026-02-05 08:34:02,172 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+813 routed+813 written+813 lost+0
+2026-02-05 08:34:02,172 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -77
+2026-02-05 08:34:02,172 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=890 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:34:02,173 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=19.4% | py_rss=75.6MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:34:07,001 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+743/5s conns+0 discs+0
+2026-02-05 08:34:07,001 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2563/5s proc+2563/5s emit+743/5s drop+0/5s
+2026-02-05 08:34:07,018 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1597.7 max=2610
+2026-02-05 08:34:07,178 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+749/5s items+1498/5s flushed+1572/5s
+2026-02-05 08:34:07,179 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+749 routed+749 written+749 lost+0
+2026-02-05 08:34:07,179 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -37
+2026-02-05 08:34:07,180 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=786 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:34:07,181 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=13.1% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:34:12,002 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+718/5s conns+0 discs+0
+2026-02-05 08:34:12,003 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2000/5s proc+2000/5s emit+718/5s drop+0/5s
+2026-02-05 08:34:12,021 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=664.6 max=2678
+2026-02-05 08:34:12,182 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+716/5s items+1432/5s flushed+1582/5s
+2026-02-05 08:34:12,182 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+716 routed+716 written+716 lost+0
+2026-02-05 08:34:12,183 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -75
+2026-02-05 08:34:12,183 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=791 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:34:12,184 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=12.8% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:34:17,004 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+692/5s conns+0 discs+0
+2026-02-05 08:34:17,005 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=0 enq+1829/5s proc+1830/5s emit+692/5s drop+0/5s
+2026-02-05 08:34:17,026 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1608.5 max=2743
+2026-02-05 08:34:17,187 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+689/5s items+1378/5s flushed+1554/5s
+2026-02-05 08:34:17,188 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+689 routed+689 written+689 lost+0
+2026-02-05 08:34:17,188 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -88
+2026-02-05 08:34:17,188 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=777 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:34:17,189 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=15.9% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:34:22,010 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+681/5s conns+0 discs+0
+2026-02-05 08:34:22,010 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=6 enq+1786/5s proc+1780/5s emit+681/5s drop+0/5s
+2026-02-05 08:34:22,029 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1407.2 max=2804
+2026-02-05 08:34:22,194 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+681/5s items+1362/5s flushed+1540/5s
+2026-02-05 08:34:22,194 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+681 routed+681 written+681 lost+0
+2026-02-05 08:34:22,195 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -89
+2026-02-05 08:34:22,196 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=770 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:34:22,196 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=14.7% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:34:27,012 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+720/5s conns+0 discs+0
+2026-02-05 08:34:27,013 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+2096/5s proc+2101/5s emit+720/5s drop+0/5s
+2026-02-05 08:34:27,036 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1567.8 max=2901
+2026-02-05 08:34:27,203 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+718/5s items+1436/5s flushed+1610/5s
+2026-02-05 08:34:27,204 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+718 routed+718 written+718 lost+0
+2026-02-05 08:34:27,205 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -87
+2026-02-05 08:34:27,206 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=805 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:34:27,207 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=15.6% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s
+2026-02-05 08:34:32,014 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] ws-stats agg_trades_5s: msgs+683/5s conns+0 discs+0
+2026-02-05 08:34:32,014 INFO feeds.binance: [2.4 AggTrades 5s (Redis)] agg-trades backlog=1 enq+1474/5s proc+1474/5s emit+683/5s drop+0/5s
+2026-02-05 08:34:32,038 INFO root: [2.4 AggTrades 5s (Redis)] HEALTH channel=agg_trades_5s lag_ms avg=1876.4 max=2976
+2026-02-05 08:34:32,211 INFO root: [2.4 AggTrades 5s (Redis)] [ingest] redis: events+1226/5s items+2452/5s flushed+2820/5s
+2026-02-05 08:34:32,211 INFO root: [2.4 AggTrades 5s (Redis)] [diff] agg_trades_5s: ws+1226 routed+1226 written+1226 lost+0
+2026-02-05 08:34:32,211 INFO root: [2.4 AggTrades 5s (Redis)] [loss] agg_trades_5s: ws->router 0 | router->writer 0 | writer->flush -184
+2026-02-05 08:34:32,211 INFO root: [2.4 AggTrades 5s (Redis)] [health] agg_trades_5s: expected=544/5s flushed=1410 pending=0 missing=0 backlog=0 backlog_ws=0
+2026-02-05 08:34:32,293 INFO root: [2.4 AggTrades 5s (Redis)] [sys] py_cpu=16.0% | py_rss=75.8MB | py_io_read=0.00MB/5s | py_io_write=0.00MB/5s

@@ -30,6 +30,7 @@ else:
 PRESETS_PATH = Path("feeds/presets.json")
 DEFAULT_CONFIG_PATH = Path("feeds/feeds.yml")
 LIVE_READY_PRESETS = {"2.1", "2.3", "2.4"}
+OUTPUT_MODES = {"clickhouse", "redis", "both"}
 
 
 def load_presets() -> List[Dict[str, object]]:
@@ -75,19 +76,34 @@ def fetch_binance_symbols(market_type: str) -> List[str]:
     return symbols
 
 
-def build_channels(preset: Dict[str, object]) -> Dict[str, ChannelConfig]:
+def build_channels(preset: Dict[str, object], output_mode: str = "clickhouse") -> Dict[str, ChannelConfig]:
+    if output_mode not in OUTPUT_MODES:
+        raise ValueError(f"Ungueltiger Output-Modus: {output_mode}")
     channels: Dict[str, ChannelConfig] = {}
     preset_channels = preset.get("channels", {}) or {}
     for channel_name in SUPPORTED_CHANNELS.keys():
         raw = preset_channels.get(channel_name)
         if isinstance(raw, dict):
+            enabled = bool(raw.get("enabled", True))
             outputs_raw = raw.get("outputs", {})
+            redis_enabled = bool(outputs_raw.get("redis", False))
+            clickhouse_enabled = bool(outputs_raw.get("clickhouse", True))
+            if enabled:
+                if output_mode == "redis":
+                    redis_enabled = True
+                    clickhouse_enabled = False
+                elif output_mode == "clickhouse":
+                    redis_enabled = False
+                    clickhouse_enabled = True
+                else:  # both
+                    redis_enabled = True
+                    clickhouse_enabled = True
             outputs = OutputTargets(
-                redis=bool(outputs_raw.get("redis", False)),
-                clickhouse=bool(outputs_raw.get("clickhouse", True)),
+                redis=redis_enabled,
+                clickhouse=clickhouse_enabled,
             )
             channels[channel_name] = ChannelConfig(
-                enabled=bool(raw.get("enabled", True)),
+                enabled=enabled,
                 depth=raw.get("depth"),
                 interval=raw.get("interval"),
                 outputs=outputs,
@@ -95,6 +111,22 @@ def build_channels(preset: Dict[str, object]) -> Dict[str, ChannelConfig]:
         else:
             channels[channel_name] = ChannelConfig(enabled=False)
     return channels
+
+
+def select_output_mode() -> str:
+    print("\nOutput-Ziel waehlen:")
+    print("  1. ClickHouse")
+    print("  2. Redis")
+    print("  3. Beides")
+    while True:
+        choice = input("Auswahl [1/2/3, Default 1]: ").strip().lower()
+        if choice in {"", "1", "clickhouse", "ch"}:
+            return "clickhouse"
+        if choice in {"2", "redis", "rd"}:
+            return "redis"
+        if choice in {"3", "both", "beides"}:
+            return "both"
+        print("Ungueltige Auswahl.")
 
 
 def _parse_interval_seconds(interval: str) -> Optional[int]:
@@ -121,10 +153,15 @@ def _parse_interval_seconds(interval: str) -> Optional[int]:
     return value * factor
 
 
-def _preset_label(preset: Dict[str, object]) -> str:
+def _preset_label(preset: Dict[str, object], output_mode: Optional[str] = None) -> str:
     preset_id = str(preset.get("id", "")).strip()
     preset_name = str(preset.get("name", "")).strip()
-    return preset_id if not preset_name else f"{preset_id} {preset_name}"
+    label = preset_id if not preset_name else f"{preset_id} {preset_name}"
+    if output_mode and output_mode != "clickhouse":
+        target_tag = {"redis": "Redis", "both": "CH+Redis"}.get(output_mode)
+        if target_tag:
+            label = label.replace("(ClickHouse)", f"({target_tag})")
+    return label
 
 
 def _safe_label(label: str) -> str:
@@ -208,6 +245,7 @@ def _preset_log_interval_s(preset: Dict[str, object]) -> int:
 def _load_alert_thresholds(preset: Dict[str, object]) -> dict[str, dict[str, float]]:
     defaults = {
         "mark_price": {"yellow_missing_pct": 0.005, "red_missing_pct": 0.02},
+        "funding": {"yellow_missing_pct": 0.005, "red_missing_pct": 0.02},
         "klines": {"yellow_missing_pct": 0.002, "red_missing_pct": 0.01},
         "agg_trades_5s": {"yellow_missing_pct": 0.002, "red_missing_pct": 0.01},
         "l1": {"yellow_missing_pct": 0.01, "red_missing_pct": 0.05},
@@ -257,9 +295,11 @@ def select_presets(presets: List[Dict[str, object]]) -> List[Dict[str, object]]:
             print("Unbekannte Auswahl.")
 
 
-async def run_preset(preset: Dict[str, object]) -> None:
+async def run_preset(preset: Dict[str, object], output_mode: str = "clickhouse") -> None:
+    if output_mode not in OUTPUT_MODES:
+        raise ValueError(f"Ungueltiger Output-Modus: {output_mode}")
     preset_id = str(preset.get("id", ""))
-    preset_label = _preset_label(preset)
+    preset_label = _preset_label(preset, output_mode)
     log_interval_s = _preset_log_interval_s(preset)
     alert_thresholds = _load_alert_thresholds(preset)
     health_enabled = preset_id in {"1.1", "2", "2.1", "2.2", "2.3", "2.4"}
@@ -300,11 +340,20 @@ async def run_preset(preset: Dict[str, object]) -> None:
         exchange=str(preset.get("exchange", "binance")),
         market_type=str(preset.get("market_type", "perp_linear")),
         symbols=symbols,
-        channels=build_channels(preset),
+        channels=build_channels(preset, output_mode=output_mode),
         metadata=metadata,
     )
 
-    config = base_config.model_copy(update={"exchanges": [exchange]})
+    defaults_update = {
+        "enable_clickhouse": output_mode in {"clickhouse", "both"},
+        "enable_redis": output_mode in {"redis", "both"},
+    }
+    config = base_config.model_copy(
+        update={
+            "defaults": base_config.defaults.model_copy(update=defaults_update),
+            "exchanges": [exchange],
+        }
+    )
     orchestrator = FeedOrchestrator(config)
     await orchestrator.start()
     health_channels: List[str] = []
@@ -313,6 +362,10 @@ async def run_preset(preset: Dict[str, object]) -> None:
         if preset_channels.get("mark_price", {}).get("enabled", True):
             health_channels.append("mark_price")
             health_intervals["mark_price"] = 1
+    if isinstance(preset_channels.get("funding"), dict):
+        if preset_channels.get("funding", {}).get("enabled", True):
+            health_channels.append("funding")
+            health_intervals["funding"] = 1
     if isinstance(preset_channels.get("ob_top5"), dict):
         if preset_channels.get("ob_top5", {}).get("enabled", True):
             health_channels.append("ob_top5")
@@ -351,13 +404,21 @@ async def run_preset(preset: Dict[str, object]) -> None:
             alert_thresholds=alert_thresholds,
             overview_interval_s=overview_interval_s,
         )
+    target_name = {"clickhouse": "ClickHouse", "redis": "Redis", "both": "ClickHouse+Redis"}.get(output_mode, output_mode)
     logging.info(
         "LOG LEGEND: ws=websocket input, routed=router accepted, written=buffered rows, "
-        "flushed=rows inserted into ClickHouse. pending=written-flushed (buffer), "
+        "flushed=rows inserted into %s. pending=written-flushed (buffer), "
         "missing=expected-flushed (per interval), backlog=rolling deficit vs expected, "
-        "backlog_ws=rolling deficit vs ws (ingest throughput vs input)."
+        "backlog_ws=rolling deficit vs ws (ingest throughput vs input).",
+        target_name,
     )
-    logging.info("Preset config: label=%s log_interval_s=%s health=%s", preset_label, log_interval_s, health_enabled)
+    logging.info(
+        "Preset config: label=%s log_interval_s=%s health=%s output_mode=%s",
+        preset_label,
+        log_interval_s,
+        health_enabled,
+        output_mode,
+    )
     stats_task = asyncio.create_task(
         _log_stats(
             orchestrator,
@@ -370,6 +431,7 @@ async def run_preset(preset: Dict[str, object]) -> None:
             preset_label,
             log_interval_s,
             alert_thresholds,
+            output_mode,
         )
     )
     overview_task = None
@@ -407,20 +469,20 @@ async def run_preset(preset: Dict[str, object]) -> None:
         await orchestrator.stop()
 
 
-def _run_preset_process(preset_id: str, core_idx: Optional[int]) -> None:
+def _run_preset_process(preset_id: str, core_idx: Optional[int], output_mode: str) -> None:
     presets = load_presets()
     preset = _resolve_preset_by_id(presets, preset_id)
-    preset_label = _preset_label(preset)
+    preset_label = _preset_label(preset, output_mode)
     _configure_logging(preset_label)
     _set_cpu_affinity(core_idx)
-    logging.info("Start preset=%s", preset_label)
+    logging.info("Start preset=%s output_mode=%s", preset_label, output_mode)
     try:
-        asyncio.run(run_preset(preset))
+        asyncio.run(run_preset(preset, output_mode=output_mode))
     except KeyboardInterrupt:
         pass
 
 
-def _start_multi_presets(presets: List[Dict[str, object]]) -> None:
+def _start_multi_presets(presets: List[Dict[str, object]], output_mode: str) -> None:
     cpu_count = os.cpu_count() or 0
     core_indices = list(range(cpu_count)) if cpu_count > 0 else []
     if cpu_count and len(presets) > cpu_count:
@@ -437,7 +499,7 @@ def _start_multi_presets(presets: List[Dict[str, object]]) -> None:
             core_idx = core_indices[idx % len(core_indices)]
         proc = ctx.Process(
             target=_run_preset_process,
-            args=(preset_id, core_idx),
+            args=(preset_id, core_idx, output_mode),
             daemon=False,
         )
         proc.start()
@@ -455,17 +517,18 @@ def _start_multi_presets(presets: List[Dict[str, object]]) -> None:
 def main() -> None:
     presets = load_presets()
     selected = select_presets(presets)
+    output_mode = select_output_mode()
     if len(selected) == 1:
         preset = selected[0]
-        preset_label = _preset_label(preset)
+        preset_label = _preset_label(preset, output_mode)
         _configure_logging(preset_label)
         _set_cpu_affinity(None)
         try:
-            asyncio.run(run_preset(preset))
+            asyncio.run(run_preset(preset, output_mode=output_mode))
         except KeyboardInterrupt:
             pass
         return
-    _start_multi_presets(selected)
+    _start_multi_presets(selected, output_mode)
 
 
 class TelegramNotifier:
@@ -845,6 +908,7 @@ async def _log_stats(
     preset_label: str,
     interval_s: int,
     alert_thresholds: dict[str, dict[str, float]],
+    output_mode: str = "clickhouse",
 ) -> None:
     last = {"redis": None, "clickhouse": None}
     last_router: dict[str, int] = {}
@@ -884,28 +948,29 @@ async def _log_stats(
 
         proc = psutil.Process()
         proc.cpu_percent(interval=None)
-        ch_pid_env = os.getenv("CLICKHOUSE_PID", "").strip()
-        if ch_pid_env.isdigit():
-            try:
-                ch_proc = psutil.Process(int(ch_pid_env))
-                ch_proc.cpu_percent(interval=None)
-            except Exception:
-                ch_proc = None
-        if ch_proc is None:
-            for p in psutil.process_iter(["name", "cmdline"]):
+        if output_mode in ("clickhouse", "both"):
+            ch_pid_env = os.getenv("CLICKHOUSE_PID", "").strip()
+            if ch_pid_env.isdigit():
                 try:
-                    name = (p.info.get("name") or "").lower()
-                    cmdline = " ".join(p.info.get("cmdline") or []).lower()
-                    if "clickhouse" in name or "clickhouse-server" in cmdline:
-                        ch_proc = p
-                        ch_proc.cpu_percent(interval=None)
-                        break
-                except (psutil.NoSuchProcess, psutil.AccessDenied):
-                    continue
-        if ch_proc is None:
-            logging.warning(
-                "ClickHouse process not found. Set CLICKHOUSE_PID to force tracking."
-            )
+                    ch_proc = psutil.Process(int(ch_pid_env))
+                    ch_proc.cpu_percent(interval=None)
+                except Exception:
+                    ch_proc = None
+            if ch_proc is None:
+                for p in psutil.process_iter(["name", "cmdline"]):
+                    try:
+                        name = (p.info.get("name") or "").lower()
+                        cmdline = " ".join(p.info.get("cmdline") or []).lower()
+                        if "clickhouse" in name or "clickhouse-server" in cmdline:
+                            ch_proc = p
+                            ch_proc.cpu_percent(interval=None)
+                            break
+                    except (psutil.NoSuchProcess, psutil.AccessDenied):
+                        continue
+            if ch_proc is None:
+                logging.warning(
+                    "ClickHouse process not found. Set CLICKHOUSE_PID to force tracking."
+                )
     except Exception:
         proc = None
     while True:
@@ -945,20 +1010,27 @@ async def _log_stats(
 
         router_counts = stats.get("router", {}).get("events_by_channel", {})
         clickhouse_stats = stats.get("clickhouse") or {}
+        redis_stats = stats.get("redis") or {}
         table_counts = clickhouse_stats.get("rows_by_table", {})
         flushed_counts = clickhouse_stats.get("flushed_by_table", {})
+        redis_channel_counts = redis_stats.get("events_by_channel", {})
+        redis_flushed_by_channel = redis_stats.get("flushed_by_channel", {})
         flush_errors = int(clickhouse_stats.get("flush_errors", 0))
 
+        def _writer_counts(channel: str) -> tuple[int, int]:
+            table = channel_to_table.get(channel)
+            if table and (table in table_counts or table in flushed_counts):
+                return int(table_counts.get(table, 0)), int(flushed_counts.get(table, 0))
+            return int(redis_channel_counts.get(channel, 0)), int(redis_flushed_by_channel.get(channel, 0))
+
         diff_lines = []
-        channels = sorted(set(ws_counts) | set(router_counts))
+        channels = sorted(set(ws_counts) | set(router_counts) | set(redis_channel_counts))
         channel_stats: dict[str, dict[str, int]] = {}
         for channel in channels:
             ws_delta = ws_counts.get(channel, 0) - last_ws.get(channel, 0)
             routed_delta = router_counts.get(channel, 0) - last_router.get(channel, 0)
-            table = channel_to_table.get(channel)
-            written_delta = 0
-            if table:
-                written_delta = table_counts.get(table, 0) - last_table.get(table, 0)
+            total_written, _ = _writer_counts(channel)
+            written_delta = total_written - last_table.get(channel, 0)
             if ws_delta or routed_delta or written_delta:
                 lost = ws_delta - written_delta
                 diff_lines.append(
@@ -980,18 +1052,15 @@ async def _log_stats(
         for channel in channels:
             ws_delta = ws_counts.get(channel, 0) - last_ws.get(channel, 0)
             routed_delta = router_counts.get(channel, 0) - last_router.get(channel, 0)
-            table = channel_to_table.get(channel)
-            writer_delta = 0
-            flushed_delta = 0
-            if table:
-                writer_delta = table_counts.get(table, 0) - last_table.get(table, 0)
-                flushed_delta = flushed_counts.get(table, 0) - last_flushed.get(table, 0)
+            total_written, total_flushed = _writer_counts(channel)
+            writer_delta = total_written - last_table.get(channel, 0)
+            flushed_delta = total_flushed - last_flushed.get(channel, 0)
             loss_ws_router = ws_delta - routed_delta
             loss_router_writer = routed_delta - writer_delta
             loss_writer_ch = writer_delta - flushed_delta
             if loss_ws_router or loss_router_writer or loss_writer_ch:
                 loss_lines.append(
-                    f"{channel}: ws->router {loss_ws_router} | router->writer {loss_router_writer} | writer->ch {loss_writer_ch}"
+                    f"{channel}: ws->router {loss_ws_router} | router->writer {loss_router_writer} | writer->flush {loss_writer_ch}"
                 )
             stats_entry = channel_stats.setdefault(channel, {})
             stats_entry["loss_ws_router"] = loss_ws_router
@@ -1021,12 +1090,12 @@ async def _log_stats(
             logging.info("[errors] %s", " | ".join(err_lines))
         if flush_errors != last_flush_errors:
             logging.info(
-                "[errors] clickhouse_flush_errors+%s/%ss",
+                "[errors] flush_errors+%s/%ss",
                 flush_errors - last_flush_errors,
                 interval_s,
             )
             alert_items.append(
-                ("red", f"clickhouse_flush_errors +{flush_errors - last_flush_errors} per {interval_s}s")
+                ("red", f"flush_errors +{flush_errors - last_flush_errors} per {interval_s}s")
             )
 
         disc_lines = []
@@ -1046,12 +1115,10 @@ async def _log_stats(
         health_lines = []
         health_snapshot: dict[str, dict[str, float]] = {}
         for channel, target_interval_s in health_intervals.items():
-            table = channel_to_table.get(channel)
-            if not table:
-                continue
             ws_delta = ws_counts.get(channel, 0) - last_ws.get(channel, 0)
-            written_delta = table_counts.get(table, 0) - last_table.get(table, 0)
-            flushed_delta = flushed_counts.get(table, 0) - last_flushed.get(table, 0)
+            total_written, total_flushed = _writer_counts(channel)
+            written_delta = total_written - last_table.get(channel, 0)
+            flushed_delta = total_flushed - last_flushed.get(channel, 0)
             state = health_state[channel]
             state["elapsed"] += interval_s
             state["ws"] += ws_delta
@@ -1115,7 +1182,7 @@ async def _log_stats(
                     parts.append("[discs] " + " | ".join(disc_lines))
                 if flush_errors != last_flush_errors:
                     parts.append(
-                        f"[errors] clickhouse_flush_errors+{flush_errors - last_flush_errors}/{interval_s}s"
+                        f"[errors] flush_errors+{flush_errors - last_flush_errors}/{interval_s}s"
                     )
                 await notifier.maybe_send(
                     f"[{preset_label}] " + " | ".join(parts),
@@ -1216,10 +1283,12 @@ async def _log_stats(
         last_ws = ws_counts
         last_router = dict(router_counts)
         last_discs = dict(disc_counts)
-        if table_counts is not None:
-            last_table = dict(table_counts)
-        if flushed_counts is not None:
-            last_flushed = dict(flushed_counts)
+        last_table = {}
+        last_flushed = {}
+        for channel in channels:
+            total_written, total_flushed = _writer_counts(channel)
+            last_table[channel] = total_written
+            last_flushed[channel] = total_flushed
         last_errs = {channel: {"parse": parse_errors.get(channel, 0), "validation": validation_errors.get(channel, 0)} for channel in channels}
         last_flush_errors = flush_errors
 
@@ -1245,6 +1314,7 @@ async def _health_monitor(
 ) -> None:
     max_lag_ms = {
         "mark_price": 5000,
+        "funding": 5000,
         "ob_top5": 5000,
         "l1": 30000,
         "klines": 120000,

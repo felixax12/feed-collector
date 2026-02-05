@@ -74,7 +74,7 @@ Channel-spezifische Felder (Kurzfassung):
 - `OrderBookDepthEvent`: `depth`, Arrays `bid_prices`, `bid_qtys`, `ask_prices`, `ask_qtys`.  
 - `OrderBookDiffEvent`: `sequence`, `prev_sequence`, Dictionaries `bids`, `asks`.  
 - `LiquidationEvent`: `side`, `price`, `qty`, optional `order_id`, `reason`.  
-- `KlineEvent`: `interval`, `open`, `high`, `low`, `close`, `volume`, `trade_count`, `is_closed`.  
+- `KlineEvent`: `interval`, `open`, `high`, `low`, `close`, `volume`, `quote_volume`, `taker_buy_base_volume`, `taker_buy_quote_volume`, `trade_count`, `is_closed`.  
 - `MarkPriceEvent`: `mark_price`, optional `index_price`.  
 - `FundingEvent`: `funding_rate`, `next_funding_ts_ns`.  
 - `AdvancedMetricsEvent`: freie Kennzahlen als Decimal-Mapping (`spread_px`, `spread_bps`, `mid_px`, `imbalance_5`, ...).
@@ -89,7 +89,11 @@ Namespace-Pattern: `marketdata:<typ>:<instrument>`.
 
 - `marketdata:last:l1:<instrument>` - Hash mit `bid_price`, `bid_qty`, `ask_price`, `ask_qty`, `ts_event_ns`, `ts_recv_ns`.
 - `marketdata:last:top5:<instrument>` / `top20` - Hash mit Feldern `b1_px`, `b1_sz`, ..., `a5_sz` usw.
-- `marketdata:last:mark:<instrument>`, `last:funding:<instrument>`, `last:adv:<instrument>` - Hashes fuer Mark Price, Funding, Advanced Metrics.
+- `marketdata:last:mark:<instrument>` - letzter Mark Price (TTL 3s).
+- `marketdata:last:funding:<instrument>` - Funding Snapshot (ohne TTL).
+- `marketdata:last:klines:<interval>:<instrument>` - letzte geschlossene Kline (TTL 120s).
+- `marketdata:last:agg_trades_5s:<instrument>` - letzte 5s Agg-Trade-Kerze (TTL 10s).
+- `marketdata:last:adv:<instrument>` - Hash fuer Advanced Metrics.
 - `marketdata:stream:trades:<instrument>`, `marketdata:stream:liquidations:<instrument>` - Streams (XADD) mit MAXLEN-Begrenzung.
 
 `RedisWriter` pipelinet Kommandos (`pipeline_size`, `flush_interval_ms`). Hashes spiegeln den letzten Zustand, Streams liefern Rollfenster fuer Trades/Liquidationen.
@@ -217,7 +221,7 @@ Dieser Adapter ersetzt `binance_collector.py`. Spezielle Logik aus dem Legacy-Co
 
 ### Redis (`redis_inspector.py`)
 - Optional `--config feeds/feeds.yml` oder eigene DSN/Host/Port-Parameter.  
-- Menue: Keyspace-Info, DB wechseln, Keys scannen, Key inspizieren (String/Hash/List/Set/ZSet/Stream), Keys loeschen, Flush DB/all, Ping.
+- Menue: Keyspace-Info, DB wechseln, logische Tabellen/Praefixe, Keys pro Tabelle, Tabellen-Sample, Key inspizieren (String/Hash/List/Set/ZSet/Stream), Keys loeschen, Flush DB/all, Ping.
 
 Beide Skripte dienen dazu, Feeds schnell zu validieren oder aufzuraeumen.
 
@@ -226,7 +230,7 @@ Beide Skripte dienen dazu, Feeds schnell zu validieren oder aufzuraeumen.
 ## 10. FAQ
 
 - **Nur Redis oder nur ClickHouse?**  
-  Setze `enable_redis` bzw. `enable_clickhouse` auf `false`. Writer werden nicht initialisiert; Adapter erkennen ueber `has_outputs`, dass keine Ausgabe benoetigt wird.
+  Interaktiv ueber `run_feeds.py`: nach Preset-Auswahl den Output-Modus `ClickHouse`, `Redis` oder `Beides` waehlen. Intern werden `enable_redis`/`enable_clickhouse` und Channel-Outputs passend gesetzt.
 
 - **Advanced Metrics ohne L1 speichern?**  
   Advanced Metrics benoetigen die zugrunde liegenden Rohdaten. Du kannst L1-Ausgaben deaktivieren (`outputs.redis = outputs.clickhouse = false`), der Adapter konsumiert den Stream trotzdem fuer die Berechnung.
